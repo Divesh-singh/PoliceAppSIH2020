@@ -1,5 +1,5 @@
 import React from 'react';
-import {View,Text,StyleSheet} from 'react-native';
+import {View,Text,StyleSheet,Image} from 'react-native';
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import * as firebase from 'firebase';
 
@@ -22,25 +22,29 @@ export default class LoginScreen extends React.Component{
     render() {
         return(
             <View style={styles.container}>
-                <Text style={styles.greeting}>{`Hello again. \n Welcome back`}</Text>
+                <View style={styles.logoBox}>
+                    <Image
+                    style={styles.logo}
+                    source={require('../assets/logopolice.png')}
+                    />
+                    <Text style={styles.head}>{`Police Officer Registaration`}</Text>
+                </View>
                 <View style={styles.errorMessage}>
                 {this.state.errorMessage && <Text style={styles.error}> {this.state.errorMessage} </Text>}
                 </View>
 
                 <View style={styles.form}>
                     <View >
-                        <Text style={styles.inputTitle}>Email Address</Text>
                         <TextInput 
+                        placeholder='Email'
                         style={styles.input}
                         autoCapitalize="none" 
                         onChangeText={email => this.setState({email})}
                         value={this.state.email}></TextInput>
                     </View>
-
-
-                    <View style={{marginTop:32}} >
-                        <Text style={styles.inputTitle}>Password</Text>
+                    <View >
                         <TextInput 
+                        placeholder='Password'
                         style={styles.input} 
                         autoCapitalize="none" 
                         secureTextEntry
@@ -49,7 +53,6 @@ export default class LoginScreen extends React.Component{
                         >
                         </TextInput>
                     </View>
-
 
                     <TouchableOpacity 
                     style={styles.button}
@@ -63,7 +66,7 @@ export default class LoginScreen extends React.Component{
                     onPress={() => this.props.navigation.navigate("Register")}
                     >
                         <Text style={{color: "#414959", fontSize: 15 }}>
-                            New to Social App?<Text style={styles.signup}>Sign Up</Text>
+                            Do not have an account? <Text style={styles.signup}>Sign Up</Text>
                             </Text>
                     </TouchableOpacity>
 
@@ -80,12 +83,22 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center"
     },
-    greeting: {
-        marginTop:32,
-        fontSize:18,
-        fontWeight:"400",
+    head: {
+        marginTop:20,
+        fontSize:25,
+        fontWeight:"600",
         textAlign: "center"
     },
+        logo:{
+        width:100,
+        height:150,
+        alignItems:"center"
+        },
+
+    logoBox:{
+        translateY:-70,
+        alignItems:"center"
+        },
     errorMessage:{
         height:72,
         alignItems:"center",
@@ -93,6 +106,7 @@ const styles = StyleSheet.create({
         marginHorizontal:30
     },
     form:{
+        translateY:-60,
         marginBottom:60,
         marginHorizontal:30,
     },
@@ -120,8 +134,8 @@ const styles = StyleSheet.create({
         justifyContent:"center"
     },
     signup:{
-        fontWeight: "600",
-        color:"#E9446A"
+        fontWeight: "900",
+        color:"#0000ff"
     },
     error:{
         color: "#ff0000",

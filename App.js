@@ -8,13 +8,13 @@ import RegisterScreen from './screens/RegisterScreen';
 import * as firebase from 'firebase';
 
 var firebaseConfig = {
-  apiKey: "AIzaSyC498XFsSwG4GVpuw5aylpOcUqAar-uhgI",
-  authDomain: "socialapp-772f0.firebaseapp.com",
-  databaseURL: "https://socialapp-772f0.firebaseio.com",
-  projectId: "socialapp-772f0",
-  storageBucket: "socialapp-772f0.appspot.com",
-  messagingSenderId: "604219399697",
-  appId: "1:604219399697:web:d63e84e4385154d6be5bb0"
+  apiKey: "AIzaSyAf79sr9bJjAHtQpJyQa7DVVNZvjwZ1zgQ",
+  authDomain: "sih2020-42ea1.firebaseapp.com",
+  databaseURL: "https://sih2020-42ea1.firebaseio.com",
+  projectId: "sih2020-42ea1",
+  storageBucket: "sih2020-42ea1.appspot.com",
+  messagingSenderId: "43086957866",
+  appId: "1:43086957866:web:87d03b215fb73387816253"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
