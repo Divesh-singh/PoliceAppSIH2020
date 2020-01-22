@@ -1,5 +1,5 @@
 import React from 'react';
-import {View,Text,StyleSheet,Image,FlatList,FormLabel, FormInput, FormValidationMessage} from 'react-native';
+import {View,Text,StyleSheet,Image,KeyboardAvoidingView} from 'react-native';
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import * as firebase from 'firebase';
 
@@ -10,7 +10,7 @@ export default class RegisterScreen extends React.Component{
         email: "",
         number:"",
         password: "",
-        errorMessage: null
+        errorMessage: null,
     };
 
     handleSignUp = () => {
@@ -26,7 +26,8 @@ export default class RegisterScreen extends React.Component{
 
     render() {
         return(
-            <View style={styles.container}>
+            
+            <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
                 <View style={styles.logoBox}>
                     <Image
                     style={styles.logo}
@@ -96,7 +97,7 @@ export default class RegisterScreen extends React.Component{
 
                 </View>
             
-            </View>
+            </KeyboardAvoidingView>
         )
     }
 }
@@ -123,12 +124,7 @@ const styles = StyleSheet.create({
         fontWeight:"600",
         textAlign: "center"
     },
-    errorMessage:{
-        height:72,
-        alignItems:"center",
-        justifyContent:"center",
-        marginHorizontal:30
-    },
+    
     form:{
         translateY:-70
     },
@@ -149,7 +145,7 @@ const styles = StyleSheet.create({
     },
     button:{
         marginHorizontal: -30,
-        backgroundColor:"#E9446A",
+        backgroundColor:"#385da8",
         borderRadius:15,
         height:40,
         alignItems: "center",
@@ -157,13 +153,20 @@ const styles = StyleSheet.create({
     },
     signup:{
         fontWeight: "600",
-        color:"#E9446A"
+        color:"#ff0000"
     },
     error:{
         color: "#ff0000",
-        fontSize:15,
+        fontSize:20,
         fontWeight:"600",
         textAlign:"center"
-    }
+    },
+    errorBox:{
+        backgroundColor: "#ffffff",
+        alignItems:"center",
+        justifyContent:"center",
+        marginHorizontal:20,
+        translateY:100,
+    },
     
 });

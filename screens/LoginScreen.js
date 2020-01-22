@@ -13,8 +13,8 @@ export default class LoginScreen extends React.Component{
 
     handleLogin = () => {
         const {email, password} = this.state
-
         firebase.auth().signInWithEmailAndPassword(email,password).catch(error => this.setState({errorMessage: error.message}))
+
     }
 
 
@@ -29,7 +29,7 @@ export default class LoginScreen extends React.Component{
                     />
                     <Text style={styles.head}>{`Police Officer Registaration`}</Text>
                 </View>
-                <View style={styles.errorMessage}>
+                <View style={styles.errorBox}>
                 {this.state.errorMessage && <Text style={styles.error}> {this.state.errorMessage} </Text>}
                 </View>
 
@@ -58,7 +58,7 @@ export default class LoginScreen extends React.Component{
                     style={styles.button}
                     onPress={this.handleLogin}
                     >
-                        <Text style={{color:"#FFF", fontWeight:"500"}}>Sign In</Text>
+                    <Text style={{color:"#FFF", fontWeight:"500"}}>Sign In</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity 
@@ -99,12 +99,7 @@ const styles = StyleSheet.create({
         translateY:-70,
         alignItems:"center"
         },
-    errorMessage:{
-        height:72,
-        alignItems:"center",
-        justifyContent:"center",
-        marginHorizontal:30
-    },
+    
     form:{
         translateY:-60,
         marginBottom:60,
@@ -127,7 +122,7 @@ const styles = StyleSheet.create({
     },
     button:{
         marginHorizontal: -30,
-        backgroundColor:"#E9446A",
+        backgroundColor:"#385da8",
         borderRadius:15,
         height:40,
         alignItems: "center",
@@ -135,13 +130,20 @@ const styles = StyleSheet.create({
     },
     signup:{
         fontWeight: "900",
-        color:"#0000ff"
+        color:"#ff0000"
     },
     error:{
         color: "#ff0000",
-        fontSize:15,
+        fontSize:20,
         fontWeight:"600",
         textAlign:"center"
-    }
+    },
+    errorBox:{
+        backgroundColor: "#ffffff",
+        alignItems:"center",
+        justifyContent:"center",
+        marginHorizontal:20,
+        translateY:-60
+    },
     
 });
