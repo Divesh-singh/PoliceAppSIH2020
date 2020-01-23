@@ -1,5 +1,5 @@
 import React from 'react';
-import {View,Text,StyleSheet,TouchableOpacity} from 'react-native';
+import {View,Text,StyleSheet,TouchableOpacity,ImageBackground} from 'react-native';
 import * as firebase from 'firebase'
 
 export default class HomeScreen extends React.Component{
@@ -20,6 +20,9 @@ export default class HomeScreen extends React.Component{
 
     render() {
         return(
+          <ImageBackground
+          source={require('../assets/Back.jpg')} style={{width: '100%', height: '100%'}} 
+          >
             <View style={styles.container}>
                 <Text>Hello, {this.state.email}!</Text>
 
@@ -30,6 +33,7 @@ export default class HomeScreen extends React.Component{
                     <Text>LogOut</Text>
                 </TouchableOpacity>
             </View>
+            </ImageBackground>
         )
     }
 }
