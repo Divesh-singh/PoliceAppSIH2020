@@ -1,7 +1,11 @@
 import React from 'react';
-import {View,Text,Image,StyleSheet, Button,ImageBackground,ScrollView,rgba, TouchableOpacity} from 'react-native';
+import {View,Text,Image,StyleSheet, Button,ImageBackground,ScrollView,rgba, TouchableOpacity, headerTitleStyle} from 'react-native';
+import {Header} from 'react-native-elements';
+import {createBottomTabNavigation} from 'react-navigation-tabs';
+
 import * as firebase from 'firebase';
-import { createDrawerNavigator } from 'react-navigation-drawer';
+import LogoTitle from './LogoScreen';
+
 export default class HomeScreen extends React.Component{
 
     state ={
@@ -17,33 +21,58 @@ export default class HomeScreen extends React.Component{
         firebase.auth().signOut();
         
     }
-
+    
+    //----------------- Header---------------
     static navigationOptions = {
-        headerTitle: () => {},
-        headerRight: () => (
-            <TouchableOpacity 
-                onPress={this.signOutUser}
-            >
-                <Text>LogOut</Text>
-            </TouchableOpacity>
-        ),
+    // headerTitle: () =><LogoTitle /> ,
+    //     headerTitleStyle: {
+                
+    //     },
+    //     headerStyle: {
+    //         backgroundColor: '#ffffff',
+    //     },
+    //     headerRight: () => (
+    //         <TouchableOpacity 
+    //             onPress={this.signOutUser}
+    //         >
+    //             <Text>LogOut</Text>
+    //         </TouchableOpacity>
+    //     ),
+        header: null,
       };
+      //--------------header End=-------------------
 
 
     render() {
         return(
           <ImageBackground
-          source={require('../assets/Back.jpg')} style={{width: '100%', height: '100%'}} 
-          >
+          source={require('../assets/Back.jpg')} style={{width: '100%', height: '100%'}}>
+               <Header
+                    leftComponent={{
+                      icon: 'menu',
+                      color: "#1C8ADB",
+                      onPress: () => alert('Menu'),
+                    }}
+                    centerComponent = {<LogoTitle />}
+                    rightComponent={{
+                         icon:  'person',
+                          color: "#1C8ADB",
+                           onPress: () => this.props.navigation.navigate("Login")
+                       }}
+                    backgroundColor='#fff'
+                    
+                  />
+                
+
             <View style={styles.container}>
-                {/* <Text>Hello, {this.state.email}!</Text>
+                <Text>Hello, {this.state.email}!</Text>
 
                 <TouchableOpacity 
                 style={{marginTop:32}}
                 onPress={this.signOutUser}
                 >
                     <Text>LogOut</Text>
-                </TouchableOpacity> */}
+                </TouchableOpacity>
 
         <ScrollView>
                   <TouchableOpacity>
@@ -51,13 +80,17 @@ export default class HomeScreen extends React.Component{
                       <Text  style={styles.item} >Manage Crime Records</Text>
                       <Image style={styles.img} source={require('../assets/1.png')}/>
                     </View>
-                    </TouchableOpacity>  
-                    <TouchableOpacity>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+>
                     <View  style={styles.tab}>
+
                       <Text style={styles.item}>Beat Management</Text>
                       <Image  style={styles.img}  source={require('../assets/2.png')}/>
                     </View>
                     </TouchableOpacity>  
+
                     <TouchableOpacity>
                     <View  style={styles.tab}>
                       <Text style={styles.item}>Requested Fir</Text>
@@ -86,7 +119,7 @@ export default class HomeScreen extends React.Component{
             </View>
             </ImageBackground>
         )
-    }
+    } 
 }
 
 // const styles = StyleSheet.create({

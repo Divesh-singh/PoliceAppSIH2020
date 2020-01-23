@@ -4,6 +4,9 @@ import LoadingScreen from './screens/LoadingScreen';
 import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
 import RegisterScreen from './screens/RegisterScreen';
+import CrimeRecordScreen from './screens/RegisterScreen';
+import BeatManagementScreen from './screens/RegisterScreen';
+
 
 import * as firebase from 'firebase';
 
@@ -19,14 +22,22 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+
+
+
 const AppStack = createStackNavigator({
-  Home: HomeScreen
+  Home: HomeScreen,
+  Crime: CrimeRecordScreen,
+  Beat: BeatManagementScreen,
+  
+
 })
 
 const AuthStack = createStackNavigator({
   Login: LoginScreen,
   Register: RegisterScreen
-})
+
+});
 
 export default createAppContainer(
   createSwitchNavigator(
