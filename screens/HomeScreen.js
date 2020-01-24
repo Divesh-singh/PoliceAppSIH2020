@@ -18,7 +18,9 @@ export default class HomeScreen extends React.Component{
     }
 
     signOutUser = () => {
-        firebase.auth().signOut();
+        firebase.auth().signOut().then(() => {
+          this.props.navigation.navigate("Login")
+        });
         
     }
     
@@ -57,7 +59,7 @@ export default class HomeScreen extends React.Component{
                     rightComponent={{
                          icon:  'person',
                           color: "#1C8ADB",
-                           onPress: () => this.props.navigation.navigate("Login")
+                           onPress: this.signOutUser
                        }}
                     backgroundColor='#fff'
                     
@@ -65,14 +67,14 @@ export default class HomeScreen extends React.Component{
                 
 
             <View style={styles.container}>
-                <Text>Hello, {this.state.email}!</Text>
+                {/* <Text>Hello, {this.state.email}!</Text>
 
                 <TouchableOpacity 
                 style={{marginTop:32}}
                 onPress={this.signOutUser}
                 >
                     <Text>LogOut</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
 
         <ScrollView>
                   <TouchableOpacity>
