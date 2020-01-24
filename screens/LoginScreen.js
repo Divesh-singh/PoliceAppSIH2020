@@ -5,6 +5,12 @@ import * as firebase from 'firebase';
 
 export default class LoginScreen extends React.Component{
 
+    static navigationOptions = {
+        header: null,
+    }
+
+
+
     state= {
         email: "",
         password: "",
@@ -14,7 +20,6 @@ export default class LoginScreen extends React.Component{
     handleLogin = () => {
         const {email, password} = this.state
         firebase.auth().signInWithEmailAndPassword(email,password).catch(error => this.setState({errorMessage: error.message}))
-
     }
 
 
