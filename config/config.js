@@ -6,4 +6,4 @@ export default FirebaseKeys = {
     storageBucket: "sih2020-42ea1.appspot.com",
     messagingSenderId: "43086957866",
     appId: "1:43086957866:web:87d03b215fb73387816253"
-  };
+  }

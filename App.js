@@ -25,8 +25,8 @@ import * as firebase from 'firebase';
 
 var firebaseConfig = FirebaseKeys;
 // Initialize Firebase
-if(! firebaseConfig.apps.length){
-   firebase.initializeApp(firebaseConfig);
+if(! firebase.apps.length){
+   firebase.initializeApp({firebaseConfig});
 }
 
 
