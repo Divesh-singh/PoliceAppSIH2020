@@ -1,5 +1,7 @@
 import React from 'react';
+import {Dimensions} from 'react-native';
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
+import { createDrawerNavigator} from 'react-navigation-drawer';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
 import {Ionicons} from '@expo/vector-icons';
@@ -32,8 +34,6 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 
-
-
 // const AppStack = createStackNavigator({
 //   Home: HomeScreen,
 //   Crime: CrimeRecordScreen,
@@ -41,9 +41,23 @@ firebase.initializeApp(firebaseConfig);
 // })
 
 
+const width = Dimensions.get("window").width;
+const DrawerConfig = {
+  drawerWidth: width * 0.83
+};
+const Drawer = createDrawerNavigator({
+  Home:HomeScreen,
+},
+{
+  headerMode: "none"
+},
+DrawerConfig
+)
+
+
 
 const AppTabNavigator = createBottomTabNavigator({
-
+ Drawer:Drawer,
   Home:{
     screen: HomeScreen,
     navigationOptions:{
