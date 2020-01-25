@@ -14,7 +14,10 @@ export default class LoadingScreen extends React.Component{
         return(
             <View style={styles.container}>
                 <Image source={require('../assets/logo.jpg')} />
-                <Text>Loading</Text>
+                <Image  
+                    source={require('../assets/loading.gif')}
+                    style={{ width: 150, height: 150 }}
+                 />
                 <ActivityIndicator size="large"></ActivityIndicator>
             </View>
         )

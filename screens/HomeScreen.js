@@ -1,7 +1,6 @@
 import React from 'react';
-import {View,Text,Image,StyleSheet, Button,ImageBackground,ScrollView,rgba, TouchableOpacity, headerTitleStyle} from 'react-native';
+import {View,Text,Image,StyleSheet, Button,ImageBackground,ScrollView,rgba, TouchableOpacity} from 'react-native';
 import {Header} from 'react-native-elements';
-import {createBottomTabNavigation} from 'react-navigation-tabs';
 
 import * as firebase from 'firebase';
 import LogoTitle from './LogoScreen';
