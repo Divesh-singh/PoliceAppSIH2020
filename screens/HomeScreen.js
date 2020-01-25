@@ -1,5 +1,5 @@
 import React from 'react';
-import {View,Text,Image,StyleSheet, Button,ImageBackground,ScrollView,rgba, TouchableOpacity} from 'react-native';
+import {View,Text,Image,StyleSheet, Button,ImageBackground,ScrollView,rgba,LayoutAnimation, TouchableOpacity} from 'react-native';
 import {Header} from 'react-native-elements';
 
 import * as firebase from 'firebase';
@@ -45,6 +45,7 @@ export default class HomeScreen extends React.Component{
 
 
     render() {
+      LayoutAnimation.easeInEaseOut();
         return(
           <ImageBackground
           source={require('../assets/Back.jpg')} style={{width: '100%', height: '100%'}}>
