@@ -25,6 +25,7 @@ export default class LoginScreen extends React.Component{
 
 
     render() {
+        LayoutAnimation.easeInEaseOut();
         return(
             <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
                 <View style={styles.container}>
