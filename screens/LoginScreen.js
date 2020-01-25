@@ -24,6 +24,7 @@ export default class LoginScreen extends React.Component{
 
 
     render() {
+        LayoutAnimation.easeInEaseOut();
         return(
             <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
                 <View style={styles.container}>
@@ -33,7 +34,7 @@ export default class LoginScreen extends React.Component{
                         style={styles.logo}
                         source={require('../assets/logopolice.png')}
                         />
-                        <Text style={styles.head}>{`Police Officer Registaration`}</Text>
+                        <Text style={styles.head}>{`Police Officer Login`}</Text>
                     </View>
                     <View style={styles.errorBox}>
                     {this.state.errorMessage && <Text style={styles.error}> {this.state.errorMessage} </Text>}

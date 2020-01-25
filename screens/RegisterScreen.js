@@ -1,5 +1,5 @@
 import React from 'react';
-import {View,Text,StyleSheet,Image,KeyboardAvoidingView,StatusBar} from 'react-native';
+import {View,Text,StyleSheet,Image,KeyboardAvoidingView,StatusBar,LayoutAnimation} from 'react-native';
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import * as firebase from 'firebase';
 
@@ -30,10 +30,15 @@ export default class RegisterScreen extends React.Component{
 
 
     render() {
+        LayoutAnimation.easeInEaseOut();
+
         return(
             
             <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
                 <View style={styles.container}>
+                    <TouchableOpacity>
+                         
+                    </TouchableOpacity>
                 <StatusBar barStyle="light-content"></StatusBar>
                     <View style={styles.logoBox}>
                         <Image

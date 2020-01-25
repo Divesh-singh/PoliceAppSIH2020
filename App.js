@@ -15,24 +15,21 @@ import HomeScreen from './screens/HomeScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import NotificationScreen from './screens/NotificationScreen';
 import ScannerScreen from './screens/ScannerScreen';
-import HeatMapScreen from './screens/HeatMapScreen';
 import VerificationScreen from './screens/VerificationScreen';
+import BeatManagementScreen from './screens/BeatManagementScreen';
+import CrimeRecordScreen from './screens/CrimeRecordScreen';
+import HeatMapScreen from './screens/HeatMapScreen';
+
+import FirebaseKeys from './config/config';
 
 
 import * as firebase from 'firebase';
 
-var firebaseConfig = {
-  apiKey: "AIzaSyAf79sr9bJjAHtQpJyQa7DVVNZvjwZ1zgQ",
-  authDomain: "sih2020-42ea1.firebaseapp.com",
-  databaseURL: "https://sih2020-42ea1.firebaseio.com",
-  projectId: "sih2020-42ea1",
-  storageBucket: "sih2020-42ea1.appspot.com",
-  messagingSenderId: "43086957866",
-  appId: "1:43086957866:web:87d03b215fb73387816253"
-};
+var firebaseConfig = FirebaseKeys;
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-
+if(! firebase.apps.length){
+   firebase.initializeApp({firebaseConfig});
+}
 
 // const AppStack = createStackNavigator({
 //   Home: HomeScreen,
@@ -108,28 +105,48 @@ const AppTabNavigator = createBottomTabNavigator({
    inactiveTintColor: "#BBBBC4",
    showLabel: false
  }
+},
+
+{
+  headerMode:'none',
 }
 )
 
 
-
+const screenStack = createStackNavigator({
+  
+  App: AppTabNavigator,
+  Home: HomeScreen,
+  Beat: BeatManagementScreen,
+  Crime: CrimeRecordScreen,
+  Heat: HeatMapScreen,
+},
+{
+  headerMode:'none'
+});
 
 
 const AuthStack = createStackNavigator({
   Login: LoginScreen,
   Register: RegisterScreen
 
+},
+{
+  headerMode:'none'
 });
+
 
 export default createAppContainer(
   createSwitchNavigator(
     {
       Loading: LoadingScreen,
       App: AppTabNavigator,
-      Auth: AuthStack
+      Auth: AuthStack,
+      screen: screenStack
     },
     {
       initialRouteName:"Loading",
+      headerMode:'none'
     }
     
   )
