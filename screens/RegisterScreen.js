@@ -1,7 +1,6 @@
 import React from 'react';
 import {View,Text,StyleSheet,Image,KeyboardAvoidingView,StatusBar,LayoutAnimation} from 'react-native';
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
-import {Ionicons} from '@expo/vector-icons'
 import * as firebase from 'firebase';
 
 export default class RegisterScreen extends React.Component{

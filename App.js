@@ -13,8 +13,11 @@ import HomeScreen from './screens/HomeScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import NotificationScreen from './screens/NotificationScreen';
 import ScannerScreen from './screens/ScannerScreen';
-import HeatMapScreen from './screens/HeatMapScreen';
 import VerificationScreen from './screens/VerificationScreen';
+import BeatManagementScreen from './screens/BeatManagementScreen';
+import CrimeRecordScreen from './screens/CrimeRecordScreen';
+import HeatMapScreen from './screens/HeatMapScreen';
+
 
 
 import * as firebase from 'firebase';
@@ -98,7 +101,12 @@ const AppTabNavigator = createBottomTabNavigator({
 )
 
 
-
+const screenStack = createStackNavigator({
+  Beat: BeatManagementScreen,
+  Crime: CrimeRecordScreen,
+  Heat: HeatMapScreen
+}
+);
 
 
 const AuthStack = createStackNavigator({
@@ -107,12 +115,14 @@ const AuthStack = createStackNavigator({
 
 });
 
+
 export default createAppContainer(
   createSwitchNavigator(
     {
       Loading: LoadingScreen,
       App: AppTabNavigator,
-      Auth: AuthStack
+      Auth: AuthStack,
+      screen: screenStack
     },
     {
       initialRouteName:"Loading",

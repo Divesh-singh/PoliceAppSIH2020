@@ -2,6 +2,7 @@ import React from 'react';
 import {View,Text,Image,StyleSheet, Button,ImageBackground,ScrollView,rgba,LayoutAnimation, TouchableOpacity} from 'react-native';
 import {Header} from 'react-native-elements';
 
+import {Ionicons} from '@expo/vector-icons';
 import * as firebase from 'firebase';
 import LogoTitle from './LogoScreen';
 
@@ -77,7 +78,9 @@ export default class HomeScreen extends React.Component{
                 </TouchableOpacity> */}
 
         <ScrollView>
-                  <TouchableOpacity>
+                    <TouchableOpacity
+                      onPress={()=>{this.props.navigation.navigate("Crime");}}
+                    >
                     <View style={styles.tab_red} >
                       <Text  style={styles.item} >Manage Crime Records</Text>
                       <Image style={styles.img} source={require('../assets/1.png')}/>
@@ -85,9 +88,7 @@ export default class HomeScreen extends React.Component{
                     </TouchableOpacity>
 
                     <TouchableOpacity
-                    onPress={()=>{this.props.navigation.navigate("Crime");
-                                  console.log("clicked");
-                            }}
+                    onPress={()=>{this.props.navigation.navigate("Beat");}}
                     >
                     <View  style={styles.tab}>
                       <Text style={styles.item}>Beat Management</Text>
@@ -126,13 +127,6 @@ export default class HomeScreen extends React.Component{
     } 
 }
 
-// const styles = StyleSheet.create({
-//     container: {
-//         flex: 1,
-//         justifyContent: "center",
-//         alignItems: "center"
-//     }
-// });
 
 const style = StyleSheet.create({
     container: {
