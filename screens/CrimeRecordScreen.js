@@ -18,9 +18,9 @@ export default class CrimeRecords extends React.Component{
         return(
             <ImageBackground source={require('../assets/Back.jpg')} style={{width: '100%', height: '100%'}}>
                 <StatusBar barStyle="light-content"></StatusBar>
-                <TouchableOpacity onPress={() => this.props.navigation.navigate("Home")}>
+                {/* <TouchableOpacity onPress={() => this.props.navigation.navigate("Home")}>
                 <Ionicons name="md-arrow-back" size={24} color="#fffff"></Ionicons>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
 
                 <View style={style.container}>
 
