@@ -1,10 +1,13 @@
 import React from 'react';
+import {View,StyleSheet, Dimensions} from 'react-native';
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
+import { createDrawerNavigator} from 'react-navigation-drawer';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
 import {Ionicons} from '@expo/vector-icons';
 import {AntDesign} from '@expo/vector-icons';
 import {Octicons} from '@expo/vector-icons';
+// import FirebaseKeys from './config/config';
 
 
 import LoadingScreen from './screens/LoadingScreen';
@@ -13,12 +16,25 @@ import HomeScreen from './screens/HomeScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import NotificationScreen from './screens/NotificationScreen';
 import ScannerScreen from './screens/ScannerScreen';
-import VerificationScreen from './screens/VerificationScreen';
-import BeatManagementScreen from './screens/BeatManagementScreen';
-import CrimeRecordScreen from './screens/CrimeRecordScreen';
 import HeatMapScreen from './screens/HeatMapScreen';
+import VerificationScreen from './screens/VerificationScreen';
+
+
 import * as firebase from 'firebase';
 
+var firebaseConfig = {
+  apiKey: "AIzaSyAf79sr9bJjAHtQpJyQa7DVVNZvjwZ1zgQ",
+  authDomain: "sih2020-42ea1.firebaseapp.com",
+  databaseURL: "https://sih2020-42ea1.firebaseio.com",
+  projectId: "sih2020-42ea1",
+  storageBucket: "sih2020-42ea1.appspot.com",
+  messagingSenderId: "43086957866",
+  appId: "1:43086957866:web:87d03b215fb73387816253"
+}
+// Initialize Firebase
+if(! firebase.apps.length){
+  firebase.initializeApp(firebaseConfig);
+}
 
 // var firebaseConfig = FirebaseKeys;
 // // Initialize Firebase
@@ -37,26 +53,42 @@ const firebaseConfig = {
 firebase.initializeApp (firebaseConfig); 
 
 
-// const AppStack = createStackNavigator({
-//   Home: HomeScreen,
-//   Crime: CrimeRecordScreen,
-//   Beat: BeatManagementScreen, 
-// })
+const width = Dimensions.get("window").width;
+const DrawerConfig = {
+  drawerWidth: width * 0.83
+};
+const Drawer = createDrawerNavigator({
+  Home:HomeScreen,
+  Notification:NotificationScreen 
+},
+{
+  headerMode: "none"
+},
+DrawerConfig
+)
 
 
 
 const AppTabNavigator = createBottomTabNavigator({
-
+ Drawer:Drawer,
   Home:{
     screen: HomeScreen,
+    
     navigationOptions:{
-      tabBarIcon: ({tintColor}) => <Ionicons name = "ios-home" size={24} color={tintColor}/>
+      tabBarIcon: ({tintColor}) => 
+      <View style = {styles.bottomIcon1}>
+      <Ionicons name = "ios-home" size={24} color={tintColor} />
+     </View>
     }
+    
   },
   Ver:{
     screen: VerificationScreen,
     navigationOptions:{
-      tabBarIcon: ({tintColor}) => <Octicons name = "verified" size={24} color={tintColor}/>
+      tabBarIcon: ({tintColor}) => 
+      <View style={styles.bottomIcon2}>
+      <Octicons name = "verified" size={24} color={tintColor}/>
+      </View>
     }
   },
 
@@ -64,17 +96,20 @@ const AppTabNavigator = createBottomTabNavigator({
   Qrscanner:{
     screen: ScannerScreen,
     navigationOptions:{
-      tabBarIcon: ({tintColor}) => <AntDesign 
+      tabBarIcon: ({tintColor}) =>
+      <View style={styles.bottomIcon3}>
+      <AntDesign 
       name = "qrcode" 
-      size={48} 
+      size={49} 
       color= "#E9446A"
       style={{
           shadowColor: "#E9446A",
           shadowOffset: {width:0, height:0},
-          shadowRadius: 40,
+          shadowRadius: 100,
           shadowOpacity: 10
       }}
       />
+      </View>
     }
   },
   Notification:{
@@ -97,49 +132,46 @@ const AppTabNavigator = createBottomTabNavigator({
    inactiveTintColor: "#BBBBC4",
    showLabel: false
  }
-},
-
-{
-  headerMode:'none',
 }
 )
 
 
-const screenStack = createStackNavigator({
-  
-  App: AppTabNavigator,
-  Home: HomeScreen,
-  Beat: BeatManagementScreen,
-  Crime: CrimeRecordScreen,
-  Heat: HeatMapScreen,
-},
-{
-  headerMode:'none'
-});
+
 
 
 const AuthStack = createStackNavigator({
   Login: LoginScreen,
   Register: RegisterScreen
 
-},
-{
-  headerMode:'none'
 });
-
 
 export default createAppContainer(
   createSwitchNavigator(
     {
       Loading: LoadingScreen,
       App: AppTabNavigator,
-      Auth: AuthStack,
-      screen: screenStack
+      Auth: AuthStack
     },
     {
       initialRouteName:"Loading",
-      headerMode:'none'
     }
     
   )
 )
+
+
+
+//.....................adjusting a botton tab tab bar icon styling.............................
+
+styles = StyleSheet.create({
+  bottomIcon1:{
+      marginRight:51
+  },
+  bottomIcon2:{
+    marginRight:45
+},
+bottomIcon3:{
+  marginRight:24
+},
+
+})

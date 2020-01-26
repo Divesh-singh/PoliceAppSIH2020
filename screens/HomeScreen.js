@@ -3,6 +3,7 @@ import {View,Text,Image,StyleSheet, Button,ImageBackground,ScrollView,rgba,Layou
 import {Header} from 'react-native-elements';
 
 import {Ionicons} from '@expo/vector-icons';
+import {AntDesign} from '@expo/vector-icons';
 import * as firebase from 'firebase';
 import LogoTitle from './LogoScreen';
 
@@ -57,8 +58,9 @@ export default class HomeScreen extends React.Component{
                       onPress: () => alert('Menu'),
                     }}
                     centerComponent = {<LogoTitle />}
+                    
                     rightComponent={{
-                         icon:  'person',
+                         icon: ()=> {<Ionicons name = "logout"/>},
                           color: "#1C8ADB",
                            onPress: this.signOutUser
                        }}
