@@ -81,7 +81,7 @@ export default class HomeScreen extends React.Component{
 
         <ScrollView>
                     <TouchableOpacity
-                      onPress={()=>{this.props.navigation.navigate("Crime");}}
+                      onPress={()=> this.props.navigation.navigate("crimeRecord")}
                     >
                     <View style={styles.tab_red} >
                       <Text  style={styles.item} >Manage Crime Records</Text>
@@ -90,7 +90,7 @@ export default class HomeScreen extends React.Component{
                     </TouchableOpacity>
 
                     <TouchableOpacity
-                    onPress={()=>{this.props.navigation.navigate("Beat");}}
+                    onPress={()=>{this.props.navigation.navigate("BeatManagement");}}
                     >
                     <View  style={styles.tab}>
                       <Text style={styles.item}>Beat Management</Text>
@@ -98,19 +98,26 @@ export default class HomeScreen extends React.Component{
                     </View>
                     </TouchableOpacity>  
 
-                    <TouchableOpacity>
+                    <TouchableOpacity 
+                    onPress={()=>{this.props.navigation.navigate("FirManagement");}}
+                    >
                     <View  style={styles.tab}>
                       <Text style={styles.item}>Requested Fir</Text>
                       <Image style={styles.img} source={require('../assets/3.png')}/>
                     </View>
-                    </TouchableOpacity>  
-                    <TouchableOpacity>
+                    </TouchableOpacity> 
+
+                    <TouchableOpacity
+                      onPress={()=>{this.props.navigation.navigate("NocVerification");}}
+                    >
                     <View  style={styles.tab}>
                       <Text style={styles.item}>NOC Verification</Text>
                       <Image style={styles.img} source={require('../assets/4.png')}/>
                     </View>
                     </TouchableOpacity>  
-                    <TouchableOpacity>
+                    <TouchableOpacity
+                         onPress={()=>{this.props.navigation.navigate("HeatMap");}}
+                    >
                     <View  style={styles.tab}>
                       <Text style={styles.item}>Criminal statistics</Text>
                       <Image  style={styles.img}  source={require('../assets/6.png')}/>
