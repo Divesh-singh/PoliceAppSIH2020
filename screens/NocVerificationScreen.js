@@ -3,8 +3,6 @@ import {View, Text, StyleSheet} from 'react-native';
 
 export default class NocVerificationScreen extends React.Component{
 
-    static 
-
     render(){
         return(
             <View style ={StyleSheet.container}>
