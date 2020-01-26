@@ -1,3 +1,4 @@
 npm i react-navigation-tabs
 npm i react-native-gesture-handler
 npm i react-native-reanimated
+npm i react-native-maps
