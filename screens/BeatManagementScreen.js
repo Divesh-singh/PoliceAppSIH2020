@@ -2,7 +2,7 @@ import React from 'react';
 import {View,Text,StyleSheet,TouchableOpacity,StatusBar} from 'react-native';
 import {Ionicons} from '@expo/vector-icons'
 
-export default class RegisterScreen extends React.Component{
+export default class BeatManagementScreen extends React.Component{
 
     static navigationOptions = {
         header: null,
@@ -24,7 +24,7 @@ export default class RegisterScreen extends React.Component{
 
 const styles = StyleSheet.create({
 
-    header: {
+     header: {
         flexDirection: "row",
         justifyContent: "space-between",
         paddingHorizontal: 32,

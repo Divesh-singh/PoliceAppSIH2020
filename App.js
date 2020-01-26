@@ -7,7 +7,6 @@ import {createBottomTabNavigator} from 'react-navigation-tabs';
 import {Ionicons} from '@expo/vector-icons';
 import {AntDesign} from '@expo/vector-icons';
 import {Octicons} from '@expo/vector-icons';
-// import FirebaseKeys from './config/config';
 
 
 import LoadingScreen from './screens/LoadingScreen';
@@ -18,9 +17,14 @@ import NotificationScreen from './screens/NotificationScreen';
 import ScannerScreen from './screens/ScannerScreen';
 import HeatMapScreen from './screens/HeatMapScreen';
 import VerificationScreen from './screens/VerificationScreen';
+import CrimeRecordScreen from './screens/CrimeRecordScreen';
+import BeatManagementScreen from './screens/BeatManagementScreen';
+
 
 
 import * as firebase from 'firebase';
+import FirManagementScreen from './screens/FirManagementScreen';
+import NocVerificationScreen from './screens/NocVerificationScreen';
 
 var firebaseConfig = {
   apiKey: "AIzaSyAf79sr9bJjAHtQpJyQa7DVVNZvjwZ1zgQ",
@@ -72,8 +76,7 @@ DrawerConfig
 const AppTabNavigator = createBottomTabNavigator({
  Drawer:Drawer,
   Home:{
-    screen: HomeScreen,
-    
+    screen: HomeScreen,  
     navigationOptions:{
       tabBarIcon: ({tintColor}) => 
       <View style = {styles.bottomIcon1}>
@@ -135,25 +138,36 @@ const AppTabNavigator = createBottomTabNavigator({
 }
 )
 
-
-
-
+const AppStack = createStackNavigator({
+  goBack: AppTabNavigator,    //AppTabNavigator is applied for android back button
+  crimeRecord: CrimeRecordScreen,
+  BeatManagement: BeatManagementScreen,
+  FirManagement: FirManagementScreen,
+  NocVerification: NocVerificationScreen,
+  HeatMap: HeatMapScreen
+})
 
 const AuthStack = createStackNavigator({
   Login: LoginScreen,
-  Register: RegisterScreen
+  Register: RegisterScreen,
 
 });
 
 export default createAppContainer(
   createSwitchNavigator(
     {
+      Home: HomeScreen,
       Loading: LoadingScreen,
-      App: AppTabNavigator,
-      Auth: AuthStack
+      App: AppTabNavigator, 
+      Auth: AuthStack,
+      stack: AppStack,
+       
     },
     {
       initialRouteName:"Loading",
+    },
+    {
+      header: null
     }
     
   )
