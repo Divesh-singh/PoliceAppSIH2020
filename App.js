@@ -57,29 +57,14 @@ if(! firebase.apps.length){
 // firebase.initializeApp (firebaseConfig); 
 
 
-const width = Dimensions.get("window").width;
-const DrawerConfig = {
-  drawerWidth: width * 0.83
-};
-const Drawer = createDrawerNavigator({
-  Home:HomeScreen,
-  Notification:NotificationScreen 
-},
-{
-  headerMode: "none"
-},
-DrawerConfig
-)
-
 
 
 const AppTabNavigator = createBottomTabNavigator({
- Drawer:Drawer,
   Home:{
     screen: HomeScreen,  
     navigationOptions:{
       tabBarIcon: ({tintColor}) => 
-      <View style = {styles.bottomIcon1}>
+      <View>
       <Ionicons name = "ios-home" size={24} color={tintColor} />
      </View>
     }
@@ -89,7 +74,7 @@ const AppTabNavigator = createBottomTabNavigator({
     screen: VerificationScreen,
     navigationOptions:{
       tabBarIcon: ({tintColor}) => 
-      <View style={styles.bottomIcon2}>
+      <View>
       <Octicons name = "verified" size={24} color={tintColor}/>
       </View>
     }
@@ -100,7 +85,7 @@ const AppTabNavigator = createBottomTabNavigator({
     screen: ScannerScreen,
     navigationOptions:{
       tabBarIcon: ({tintColor}) =>
-      <View style={styles.bottomIcon3}>
+      <View>
       <AntDesign 
       name = "qrcode" 
       size={49} 
@@ -181,20 +166,3 @@ export default createAppContainer(
     
   )
 )
-
-
-
-//.....................adjusting a botton tab tab bar icon styling.............................
-
-styles = StyleSheet.create({
-  bottomIcon1:{
-      marginRight:51
-  },
-  bottomIcon2:{
-    marginRight:45
-},
-bottomIcon3:{
-  marginRight:24
-},
-
-})
