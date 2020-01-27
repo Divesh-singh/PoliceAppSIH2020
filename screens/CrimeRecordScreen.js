@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
 	  position: "absolute",
 	  alignItems:"center",
 	  marginLeft:110,
-	  marginTop:100,
+	  marginTop:130,
 	  height:200,
 	  width:200,
 	  
