@@ -1,12 +1,12 @@
 import React from 'react';
-import {View,StyleSheet, Dimensions} from 'react-native';
-import {createAppContainer, createSwitchNavigator} from 'react-navigation';
-import { createDrawerNavigator} from 'react-navigation-drawer';
-import {createStackNavigator} from 'react-navigation-stack';
-import {createBottomTabNavigator} from 'react-navigation-tabs';
-import {Ionicons} from '@expo/vector-icons';
-import {AntDesign} from '@expo/vector-icons';
-import {Octicons} from '@expo/vector-icons';
+import { View, StyleSheet, Dimensions } from 'react-native';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { createDrawerNavigator } from 'react-navigation-drawer';
+import { createStackNavigator } from 'react-navigation-stack';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { Ionicons } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
+import { Octicons } from '@expo/vector-icons';
 
 
 import LoadingScreen from './screens/LoadingScreen';
@@ -19,6 +19,8 @@ import HeatMapScreen from './screens/HeatMapScreen';
 import VerificationScreen from './screens/VerificationScreen';
 import CrimeRecordScreen from './screens/CrimeRecordScreen';
 import BeatManagementScreen from './screens/BeatManagementScreen';
+import ElderlyManagement from './screens/ElderlyManagement';
+import ElderlyNewRecord from './screens/ElderlyNewRecord';
 
 
 
@@ -36,8 +38,22 @@ var firebaseConfig = {
   appId: "1:43086957866:web:87d03b215fb73387816253"
 }
 // Initialize Firebase
-if(! firebase.apps.length){
+const secondaryConfig = {
+  apiKey: "AIzaSyBcfe9PHF8GqZHUxg999QKYmK9CqP8bugU",
+  authDomain: "sih-a9d77.firebaseapp.com",
+  databaseURL: "https://sih-a9d77.firebaseio.com/",
+  projectId: "sih-a9d77",
+  storageBucket: "sih-a9d77.appspot.com",
+  messagingSenderId: "457769232417",
+  appId: "1:457769232417:web:b55d8c709b802ace551b60"
+};
+
+if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
+  var secondary = firebase.initializeApp(secondaryConfig, "secondary");
+
+// Retrieve the database.
+var secondaryDatabase = secondary.database();
 }
 
 // var firebaseConfig = FirebaseKeys;
@@ -60,70 +76,70 @@ if(! firebase.apps.length){
 
 
 const AppTabNavigator = createBottomTabNavigator({
-  Home:{
-    screen: HomeScreen,  
-    navigationOptions:{
-      tabBarIcon: ({tintColor}) => 
-      <View>
-      <Ionicons name = "ios-home" size={24} color={tintColor} />
-     </View>
+  Home: {
+    screen: HomeScreen,
+    navigationOptions: {
+      tabBarIcon: ({ tintColor }) =>
+        <View>
+          <Ionicons name="ios-home" size={24} color={tintColor} />
+        </View>
     }
-    
+
   },
-  Ver:{
+  Ver: {
     screen: VerificationScreen,
-    navigationOptions:{
-      tabBarIcon: ({tintColor}) => 
-      <View>
-      <Octicons name = "verified" size={24} color={tintColor}/>
-      </View>
+    navigationOptions: {
+      tabBarIcon: ({ tintColor }) =>
+        <View>
+          <Octicons name="verified" size={24} color={tintColor} />
+        </View>
     }
   },
 
- 
-  Qrscanner:{
+
+  Qrscanner: {
     screen: ScannerScreen,
-    navigationOptions:{
-      tabBarIcon: ({tintColor}) =>
-      <View>
-      <AntDesign 
-      name = "qrcode" 
-      size={49} 
-      color= "#E9446A"
-      style={{
-          shadowColor: "#E9446A",
-          shadowOffset: {width:0, height:0},
-          shadowRadius: 100,
-          shadowOpacity: 10
-      }}
-      />
-      </View>
+    navigationOptions: {
+      tabBarIcon: ({ tintColor }) =>
+        <View>
+          <AntDesign
+            name="qrcode"
+            size={49}
+            color="#E9446A"
+            style={{
+              shadowColor: "#E9446A",
+              shadowOffset: { width: 0, height: 0 },
+              shadowRadius: 100,
+              shadowOpacity: 10
+            }}
+          />
+        </View>
     }
   },
-  Notification:{
+  Notification: {
     screen: NotificationScreen,
-    navigationOptions:{
-      tabBarIcon: ({tintColor}) => <Ionicons name = "ios-notifications" size={24} color={tintColor}/>
+    navigationOptions: {
+      tabBarIcon: ({ tintColor }) => <Ionicons name="ios-notifications" size={24} color={tintColor} />
     }
   },
-  Map:{
+  Map: {
     screen: HeatMapScreen,
-    navigationOptions:{
-      tabBarIcon: ({tintColor}) => <AntDesign name = "dotchart" size={24} color={tintColor}/>
-        }
+    navigationOptions: {
+      tabBarIcon: ({ tintColor }) => <AntDesign name="dotchart" size={24} color={tintColor} />
+    }
   }
- 
+
 },
-{
- tabBarOptions:{
-   activeTintColor: "#161F3D",
-   inactiveTintColor: "#BBBBC4",
-   showLabel: false
- }
-},
-{
-  headerMode: "none"
-},
+  {
+    tabBarOptions: {
+      activeTintColor: "#161F3D",
+      inactiveTintColor: "#BBBBC4",
+      showLabel: false
+    }
+  },
+  {
+    headerMode: "none"
+  },
 )
 
 const AppStack = createStackNavigator({
@@ -132,19 +148,21 @@ const AppStack = createStackNavigator({
   BeatManagement: BeatManagementScreen,
   FirManagement: FirManagementScreen,
   NocVerification: NocVerificationScreen,
-  HeatMap: HeatMapScreen
+  HeatMap: HeatMapScreen,
+  Elder: ElderlyManagement,
+  ElderN: ElderlyNewRecord
 },
-{
-  headerMode: "none"
-},)
+  {
+    headerMode: "none"
+  })
 
 const AuthStack = createStackNavigator({
   Login: LoginScreen,
   Register: RegisterScreen,
 },
-{
-  headerMode: "none"
-},
+  {
+    headerMode: "none"
+  },
 );
 
 export default createAppContainer(
@@ -152,17 +170,17 @@ export default createAppContainer(
     {
       Home: HomeScreen,
       Loading: LoadingScreen,
-      App: AppTabNavigator, 
+      App: AppTabNavigator,
       Auth: AuthStack,
       stack: AppStack,
-       
+
     },
     {
-      initialRouteName:"Loading",
+      initialRouteName: "Loading",
     },
     {
       header: null
     }
-    
+
   )
 )

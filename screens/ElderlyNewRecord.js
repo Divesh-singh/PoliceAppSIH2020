@@ -2,7 +2,6 @@ import React from 'react';
 import {View,Text,StyleSheet,Image,KeyboardAvoidingView,StatusBar,LayoutAnimation} from 'react-native';
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import * as firebase from 'firebase';
-import {sendData} from '../Components/userData.js'
 
 
 export default class RegisterScreen extends React.Component{
@@ -16,19 +15,18 @@ export default class RegisterScreen extends React.Component{
         email: "",
         adhar:"",
         number:"",
-        password: "",
         errorMessage: null,
     };
 
-    handleSignUp = () => {
-        firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then(userCredentials =>{
-            return userCredentials.user.updateProfile({
-                displayName: this.state.name
-            })
-        })
-        // .then(sendData(this.props.state))
+    handleAdd = () => {
+        firebase.database().ref('/Elder').push(state)
+        .then(
+          this.props.navigation.navigate('Home')
+        )
         .catch(error => this.setState({errorMessage: error.message}));
     };
+
+
 
     render() {
         LayoutAnimation.easeInEaseOut();
@@ -37,16 +35,12 @@ export default class RegisterScreen extends React.Component{
             
             <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
                 <View style={styles.container}>
-                    {/* <TouchableOpacity>
+                    <TouchableOpacity>
                          
                     </TouchableOpacity>
-                <StatusBar barStyle="light-content"></StatusBar> */}
+                <StatusBar barStyle="light-content"></StatusBar>
                     <View style={styles.logoBox}>
-                        <Image
-                        style={styles.logo}
-                        source={require('../assets/logopolice.png')}
-                        />
-                        <Text style={styles.head}>{`Police Officer Registaration`}</Text>
+                        <Text style={styles.head}>{`Elder Person Record`}</Text>
                     </View>
 
                     <View style={styles.errorBox}>
@@ -87,38 +81,14 @@ export default class RegisterScreen extends React.Component{
                             value={this.state.number}></TextInput>
                         </View>
 
-                        <View >
-                            <TextInput 
-                            placeholder='Password'
-                            style={styles.input} 
-                            autoCapitalize="none" 
-                            secureTextEntry
-                            onChangeText={password => this.setState({password})}
-                            value={this.state.password}
-                            >
-                            </TextInput>
-                        </View>
-
-
                         <TouchableOpacity 
                         style={styles.button}
                         onPress={()=>{
-                            this.handleSignUp;
-                            //firebase.database().ref('/users').push(this.state);
+                            this.handleAdd;
                         }}
                         >
-                            <Text style={{color:"#FFF", fontWeight:"500"}}>Sign Up</Text>
+                            <Text style={{color:"#FFF", fontWeight:"500"}}>Add</Text>
                         </TouchableOpacity>
-
-                        <TouchableOpacity 
-                        style={{alignSelf: "center", marginTop:32}}
-                        onPress={() => this.props.navigation.navigate("Login")}
-                        >
-                            <Text style={{color: "#414959", fontSize: 15 }}>
-                                Already Registered? <Text style={styles.signup}>Log In</Text>
-                                </Text>
-                        </TouchableOpacity>
-
                     </View>
                 </View>
             </KeyboardAvoidingView>

@@ -60,7 +60,7 @@ export default class HomeScreen extends React.Component{
                     centerComponent = {<LogoTitle />}
                     
                     rightComponent={{
-                         icon: ()=> {<Ionicons name = "logout"/>},
+                         icon:"exit-to-app",
                           color: "#1C8ADB",
                            onPress: this.signOutUser
                        }}
