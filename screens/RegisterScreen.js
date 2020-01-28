@@ -1,7 +1,9 @@
 import React from 'react';
 import {View,Text,StyleSheet,Image,KeyboardAvoidingView,StatusBar,LayoutAnimation} from 'react-native';
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
+
 import * as firebase from 'firebase';
+    
 
 export default class RegisterScreen extends React.Component{
 
@@ -18,13 +20,31 @@ export default class RegisterScreen extends React.Component{
         errorMessage: null,
     };
 
+        wrieUserData(name, email, adhar, number, password){
+            firebase.database().ref('\Users').set({
+                name,
+                email,
+                adhar,
+                number,
+                password
+            }).then((data) => {
+                console.log('data',data)
+            }).catch((error)=> {
+                console.log('error', error)
+            })
+        }
+
+       
     handleSignUp = () => {
+
         firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then(userCredentials =>{
             return userCredentials.user.updateProfile({
                 displayName: this.state.name
             })
         })
         .catch(error => this.setState({errorMessage: error.message}));
+
+        
     };
 
 
@@ -191,3 +211,4 @@ const styles = StyleSheet.create({
     },
     
 });
+
