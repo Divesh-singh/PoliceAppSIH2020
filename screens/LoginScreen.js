@@ -1,9 +1,14 @@
 import React from 'react';
-import {View,Text,StyleSheet,Image} from 'react-native';
+import {View,Text,StyleSheet,Image,StatusBar,KeyboardAvoidingView,LayoutAnimation} from 'react-native';
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import * as firebase from 'firebase';
 
 export default class LoginScreen extends React.Component{
+
+    static navigationOptions = {
+            header: null,
+          };
+
 
     state= {
         email: "",
@@ -13,66 +18,69 @@ export default class LoginScreen extends React.Component{
 
     handleLogin = () => {
         const {email, password} = this.state
-
         firebase.auth().signInWithEmailAndPassword(email,password).catch(error => this.setState({errorMessage: error.message}))
     }
 
 
 
     render() {
+        LayoutAnimation.easeInEaseOut();
         return(
-            <View style={styles.container}>
-                <View style={styles.logoBox}>
-                    <Image
-                    style={styles.logo}
-                    source={require('../assets/logopolice.png')}
-                    />
-                    <Text style={styles.head}>{`Police Officer Registaration`}</Text>
-                </View>
-                <View style={styles.errorMessage}>
-                {this.state.errorMessage && <Text style={styles.error}> {this.state.errorMessage} </Text>}
-                </View>
-
-                <View style={styles.form}>
-                    <View >
-                        <TextInput 
-                        placeholder='Email'
-                        style={styles.input}
-                        autoCapitalize="none" 
-                        onChangeText={email => this.setState({email})}
-                        value={this.state.email}></TextInput>
+            <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
+                <View style={styles.container}>
+                    <StatusBar barStyle="light-content"></StatusBar>
+                    <View style={styles.logoBox}>
+                        <Image
+                        style={styles.logo}
+                        source={require('../assets/logopolice.png')}
+                        />
+                        <Text style={styles.head}>{`Police Officer Login`}</Text>
                     </View>
-                    <View >
-                        <TextInput 
-                        placeholder='Password'
-                        style={styles.input} 
-                        autoCapitalize="none" 
-                        secureTextEntry
-                        onChangeText={password => this.setState({password})}
-                        value={this.state.password}
+                    <View style={styles.errorBox}>
+                    {this.state.errorMessage && <Text style={styles.error}> {this.state.errorMessage} </Text>}
+                    </View>
+
+                    <View style={styles.form}>
+                        <View >
+                            <TextInput 
+                            placeholder='Email'
+                            style={styles.input}
+                            autoCapitalize="none" 
+                            onChangeText={email => this.setState({email})}
+                            value={this.state.email}></TextInput>
+                        </View>
+                        <View >
+                            <TextInput 
+                            placeholder='Password'
+                            style={styles.input} 
+                            autoCapitalize="none" 
+                            secureTextEntry
+                            onChangeText={password => this.setState({password})}
+                            value={this.state.password}
+                            >
+                            </TextInput>
+                        </View>
+
+                        <TouchableOpacity 
+                        style={styles.button}
+                        onPress={this.handleLogin}
                         >
-                        </TextInput>
-                    </View>
-
-                    <TouchableOpacity 
-                    style={styles.button}
-                    onPress={this.handleLogin}
-                    >
                         <Text style={{color:"#FFF", fontWeight:"500"}}>Sign In</Text>
-                    </TouchableOpacity>
+                        </TouchableOpacity>
 
-                    <TouchableOpacity 
-                    style={{alignSelf: "center", marginTop:32}}
-                    onPress={() => this.props.navigation.navigate("Register")}
-                    >
-                        <Text style={{color: "#414959", fontSize: 15 }}>
-                            Do not have an account? <Text style={styles.signup}>Sign Up</Text>
-                            </Text>
-                    </TouchableOpacity>
+                        <TouchableOpacity 
+                        style={{alignSelf: "center", marginTop:32}}
+                        onPress={() => this.props.navigation.navigate("Register")}
+                        >
+                            <Text style={{color: "#414959", fontSize: 15 }}>
+                                Do not have an account? <Text style={styles.signup}>Sign Up</Text>
+                                </Text>
+                        </TouchableOpacity>
 
+                    </View>
+                
                 </View>
-            
-            </View>
+            </KeyboardAvoidingView>
         )
     }
 }
@@ -81,7 +89,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        translateY:50
     },
     head: {
         marginTop:20,
@@ -99,12 +108,7 @@ const styles = StyleSheet.create({
         translateY:-70,
         alignItems:"center"
         },
-    errorMessage:{
-        height:72,
-        alignItems:"center",
-        justifyContent:"center",
-        marginHorizontal:30
-    },
+    
     form:{
         translateY:-60,
         marginBottom:60,
@@ -127,7 +131,7 @@ const styles = StyleSheet.create({
     },
     button:{
         marginHorizontal: -30,
-        backgroundColor:"#E9446A",
+        backgroundColor:"#385da8",
         borderRadius:15,
         height:40,
         alignItems: "center",
@@ -135,13 +139,20 @@ const styles = StyleSheet.create({
     },
     signup:{
         fontWeight: "900",
-        color:"#0000ff"
+        color:"#ff0000"
     },
     error:{
         color: "#ff0000",
-        fontSize:15,
+        fontSize:20,
         fontWeight:"600",
         textAlign:"center"
-    }
+    },
+    errorBox:{
+        backgroundColor: "#ffffff",
+        alignItems:"center",
+        justifyContent:"center",
+        marginHorizontal:20,
+        translateY:-60
+    },
     
 });
