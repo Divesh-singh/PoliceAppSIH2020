@@ -692,11 +692,7 @@ super(props);
   onValueChange={(itemValue, itemIndex) =>
     this.setState({language: itemValue})
   }>
-  <Picker.Item label="Murder" value="Murder" />
-  <Picker.Item label="Rape" value="Rape" />
-   <Picker.Item label="Kindnapping" value="Kindnapping" />
-    <Picker.Item label="Human Trafficking" value="Human Trafficking" />
-	 <Picker.Item label="Domestic Violence" value="Domestic Violence" />
+  <Picker.Item label="Uttar Pradesh" value="Uttar Pradesh" />
 </Picker>
 
 
@@ -725,7 +721,7 @@ super(props);
     <MapView.Marker 
       coordinate={marker.coordinates}
       title= ""              //{marker.title}
-      image={require('../assets/heatMap.png')}
+      image={require('../assets/heatmarker.png')}
 	  style={{opacity: 0.5}}
 	/>
   ))}
