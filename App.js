@@ -18,6 +18,7 @@ import ScannerScreen from './screens/ScannerScreen';
 import HeatMapScreen from './screens/HeatMapScreen';
 import VerificationScreen from './screens/VerificationScreen';
 import CrimeRecordScreen from './screens/CrimeRecordScreen';
+import CrimeRecordAdd from './screens/CrimeRecordAdd';
 import BeatManagementScreen from './screens/BeatManagementScreen';
 import ElderlyManagement from './screens/ElderlyManagement';
 import ElderlyNewRecord from './screens/ElderlyNewRecord';
@@ -38,22 +39,19 @@ var firebaseConfig = {
   appId: "1:43086957866:web:87d03b215fb73387816253"
 }
 // Initialize Firebase
-const secondaryConfig = {
-  apiKey: "AIzaSyBcfe9PHF8GqZHUxg999QKYmK9CqP8bugU",
-  authDomain: "sih-a9d77.firebaseapp.com",
-  databaseURL: "https://sih-a9d77.firebaseio.com/",
-  projectId: "sih-a9d77",
-  storageBucket: "sih-a9d77.appspot.com",
-  messagingSenderId: "457769232417",
-  appId: "1:457769232417:web:b55d8c709b802ace551b60"
-};
+// const secondaryConfig = {
+//   apiKey: "AIzaSyBcfe9PHF8GqZHUxg999QKYmK9CqP8bugU",
+//   authDomain: "sih-a9d77.firebaseapp.com",
+//   databaseURL: "https://sih-a9d77.firebaseio.com/",
+//   projectId: "sih-a9d77",
+//   storageBucket: "sih-a9d77.appspot.com",
+//   messagingSenderId: "457769232417",
+//   appId: "1:457769232417:web:b55d8c709b802ace551b60"
+// };
 
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
-  var secondary = firebase.initializeApp(secondaryConfig, "secondary");
-
 // Retrieve the database.
-var secondaryDatabase = secondary.database();
 }
 
 // var firebaseConfig = FirebaseKeys;
@@ -145,6 +143,7 @@ const AppTabNavigator = createBottomTabNavigator({
 const AppStack = createStackNavigator({
   goBack: AppTabNavigator,    //AppTabNavigator is applied for android back button
   crimeRecord: CrimeRecordScreen,
+  crimeAdd: CrimeRecordAdd,
   BeatManagement: BeatManagementScreen,
   FirManagement: FirManagementScreen,
   NocVerification: NocVerificationScreen,
