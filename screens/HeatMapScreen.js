@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
-export default class HeatMapScreen extends Component<{}> {
+export default class HeatMapScreen extends Component {
 constructor(props) {
 super(props);
 
@@ -692,11 +692,7 @@ super(props);
   onValueChange={(itemValue, itemIndex) =>
     this.setState({language: itemValue})
   }>
-  <Picker.Item label="Murder" value="Murder" />
-  <Picker.Item label="Rape" value="Rape" />
-   <Picker.Item label="Kindnapping" value="Kindnapping" />
-    <Picker.Item label="Human Trafficking" value="Human Trafficking" />
-	 <Picker.Item label="Domestic Violence" value="Domestic Violence" />
+  <Picker.Item label="Uttar Pradesh" value="Uttar Pradesh" />
 </Picker>
 
 
@@ -725,7 +721,7 @@ super(props);
     <MapView.Marker 
       coordinate={marker.coordinates}
       title= ""              //{marker.title}
-      image={require('../assets/heatMap.png')}
+      image={require('../assets/heatmarker.png')}
 	  style={{opacity: 0.5}}
 	/>
   ))}

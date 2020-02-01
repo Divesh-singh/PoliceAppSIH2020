@@ -43,7 +43,7 @@ export default class CrimeRecords extends React.Component{
                           
               <View style={styles.container}>
                 <ScrollView>
-                  <TouchableOpacity>
+                  <TouchableOpacity onPress={()=> this.props.navigation.navigate("crimeAdd")}>
                     <View style={styles.tab} >
                       <Text  style={styles.item} >Add Record</Text>
                       <Image style={styles.img}  source={require('../assets//adddb.png')}/>
