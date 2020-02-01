@@ -1,48 +1,61 @@
 import React from 'react';
-import {View,Text,StyleSheet,Image,StatusBar,KeyboardAvoidingView,LayoutAnimation} from 'react-native';
+import {View,Text,StyleSheet,Image,KeyboardAvoidingView,StatusBar,LayoutAnimation} from 'react-native';
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import * as firebase from 'firebase';
 
 
-export default class LoginScreen extends React.Component{
+export default class RegisterScreen extends React.Component{
 
     static navigationOptions = {
-            header: null,
-          };
-
+        header: null,
+      };
 
     state= {
+        name:"",
         email: "",
-        password: "",
-        errorMessage: null
+        adhar:"",
+        number:"",
+        errorMessage: null,
     };
 
-    handleLogin = () => {
-        const {email, password} = this.state
-        firebase.auth().signInWithEmailAndPassword(email,password).catch(error => this.setState({errorMessage: error.message}))
-    }
-
+    handleAdd = () => {
+        firebase.database().ref('/Elder').push(state)
+        .then(
+          this.props.navigation.navigate('Home')
+        )
+        .catch(error => this.setState({errorMessage: error.message}));
+    };
 
 
 
     render() {
         LayoutAnimation.easeInEaseOut();
+
         return(
+            
             <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
                 <View style={styles.container}>
-                    <StatusBar barStyle="light-content"></StatusBar>
+                    <TouchableOpacity>
+                         
+                    </TouchableOpacity>
+                <StatusBar barStyle="light-content"></StatusBar>
                     <View style={styles.logoBox}>
-                        <Image
-                        style={styles.logo}
-                        source={require('../assets/logopolice.png')}
-                        />
-                        <Text style={styles.head}>{`Police Officer Login`}</Text>
+                        <Text style={styles.head}>{`Elder Person Record`}</Text>
                     </View>
+
                     <View style={styles.errorBox}>
                     {this.state.errorMessage && <Text style={styles.error}> {this.state.errorMessage} </Text>}
                     </View>
 
                     <View style={styles.form}>
+                        <View >
+                            <TextInput
+                            placeholder='Full Name' 
+                            style={styles.input}
+                            autoCapitalize="none" 
+                            onChangeText={name => this.setState({name})}
+                            value={this.state.name}></TextInput>
+                        </View>
                         <View >
                             <TextInput 
                             placeholder='Email'
@@ -52,35 +65,31 @@ export default class LoginScreen extends React.Component{
                             value={this.state.email}></TextInput>
                         </View>
                         <View >
-                            <TextInput 
-                            placeholder='Password'
-                            style={styles.input} 
+                            <TextInput
+                            placeholder='Adhar Card Number' 
+                            style={styles.input}
                             autoCapitalize="none" 
-                            secureTextEntry
-                            onChangeText={password => this.setState({password})}
-                            value={this.state.password}
-                            >
-                            </TextInput>
+                            onChangeText={adhar => this.setState({adhar})}
+                            value={this.state.adhar}></TextInput>
+                        </View>
+                        <View >
+                            <TextInput
+                            placeholder='Mobile Number' 
+                            style={styles.input}
+                            autoCapitalize="none" 
+                            onChangeText={number => this.setState({number})}
+                            value={this.state.number}></TextInput>
                         </View>
 
                         <TouchableOpacity 
                         style={styles.button}
-                        onPress={this.handleLogin}
+                        onPress={()=>{
+                            this.handleAdd;
+                        }}
                         >
-                        <Text style={{color:"#FFF", fontWeight:"500"}}>Sign In</Text>
+                            <Text style={{color:"#FFF", fontWeight:"500"}}>Add</Text>
                         </TouchableOpacity>
-
-                        <TouchableOpacity 
-                        style={{alignSelf: "center", marginTop:32}}
-                        onPress={() => this.props.navigation.navigate("Register")}
-                        >
-                            <Text style={{color: "#414959", fontSize: 15 }}>
-                                Do not have an account? <Text style={styles.signup}>Sign Up</Text>
-                                </Text>
-                        </TouchableOpacity>
-
                     </View>
-                
                 </View>
             </KeyboardAvoidingView>
         )
@@ -94,13 +103,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         translateY:50
     },
-    head: {
-        marginTop:20,
-        fontSize:25,
-        fontWeight:"600",
-        textAlign: "center"
-    },
-        logo:{
+    logo:{
         width:100,
         height:150,
         alignItems:"center"
@@ -110,11 +113,15 @@ const styles = StyleSheet.create({
         translateY:-70,
         alignItems:"center"
         },
+    head: {
+        
+        fontSize:25,
+        fontWeight:"600",
+        textAlign: "center"
+    },
     
     form:{
-        translateY:-60,
-        marginBottom:60,
-        marginHorizontal:30,
+        translateY:-70
     },
     inputTitle:{
         marginBottom:10,
@@ -140,7 +147,7 @@ const styles = StyleSheet.create({
         justifyContent:"center"
     },
     signup:{
-        fontWeight: "900",
+        fontWeight: "600",
         color:"#ff0000"
     },
     error:{
@@ -154,7 +161,7 @@ const styles = StyleSheet.create({
         alignItems:"center",
         justifyContent:"center",
         marginHorizontal:20,
-        translateY:-60
+        translateY:-75,
     },
     
 });

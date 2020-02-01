@@ -26,12 +26,12 @@ export default class CrimeRecords extends React.Component{
 
                  <Header
                     leftComponent={{
-                      icon: 'menu',
+                      icon: 'arrow-back',
                       color: "#1C8ADB",
-                      onPress: () => alert('Menu'),
+                      onPress: () => this.props.navigation.navigate('Home'),
                     }}
                     centerComponent={{ text: 'Criminal Records', style: { color: "#1C8ADB",fontWeight:'bold',fontSize:22,letterSpacing:3 } }}
-                    rightComponent={{ icon: 'lock', color: "#1C8ADB", onPress: () => this.props.navigation.navigate("Login") }}
+                    //rightComponent={{ icon: 'lock', color: "#1C8ADB", onPress: () => this.props.navigation.navigate("Login") }}
                     backgroundColor='#fff'
                   /> 
                 </View>
