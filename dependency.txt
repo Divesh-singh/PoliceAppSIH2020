@@ -3,3 +3,4 @@ npm i react-native-gesture-handler
 npm i react-native-reanimated
 npm i react-native-maps
 npm i react-native-material-dropdown
+npm i expo-image-picker
