@@ -13,653 +13,745 @@ super(props);
 
   this.state = {
   markers: [{
-      
+
 	  coordinates: {
-      latitude: 3.148561,
-      longitude: 101.652778
+      latitude: 27.107738,
+      longitude: 80.519786
     },
   },
- 
+
  {
-	  
+
       coordinates: {
-      latitude: 3.149771,
-      longitude: 101.655449
-    },  
+      latitude: 27.109558,
+      longitude: 80.518486
+    },
   },
-  
+
   {
-	  
+
 	  coordinates: {
-		  latitude: 4.149888,
-		  longitude: 121.655449
+		  latitude: 27.109938,
+		  longitude: 80.517876
 	  },
   },
 {
-	  
+
 	  coordinates: {
-		  latitude: 5.14982,
-		  longitude: 131.652249
+		  latitude: 27.109948,
+		  longitude: 80.516786
 	  },
-	  
-	// generate database from here  
-	        },
-{         
-       coordinates:{
-       latitude:  25.878077,
-       longitude:  79.712099
-      },
-      },
-{         
-       coordinates:{
-       latitude:  27.247294,
-       longitude:  80.670951
-      },
-      },
-{         
-       coordinates:{
-       latitude:  25.403090,
-       longitude:  80.251239
-      },
-      },
-{         
-       coordinates:{
-       latitude:  27.517427,
-       longitude:  82.639597
-      },
-      },
-{         
-       coordinates:{
-       latitude:  24.959550,
-       longitude:  81.779137
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.891369,
-       longitude:  79.588272
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.981393,
-       longitude:  81.273206
-      },
-      },
-{         
-       coordinates:{
-       latitude:  25.543350,
-       longitude:  81.959817
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.811897,
-       longitude:  80.080135
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.799306,
-       longitude:  82.494414
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.786583,
-       longitude:  81.882245
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.921134,
-       longitude:  79.343210
-      },
-      },
-{         
-       coordinates:{
-       latitude:  25.920957,
-       longitude:  81.612296
-      },
-      },
-{         
-       coordinates:{
-       latitude:  25.935440,
-       longitude:  80.649005
-      },
-      },
-{         
-       coordinates:{
-       latitude:  25.688428,
-       longitude:  81.679550
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.113318,
-       longitude:  82.136708
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.484252,
-       longitude:  80.388838
-      },
-      },
-{         
-       coordinates:{
-       latitude:  25.794550,
-       longitude:  80.420221
-      },
-      },
-{         
-       coordinates:{
-       latitude:  27.179520,
-       longitude:  79.388530
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.277488,
-       longitude:  81.354967
-      },
-      },
-{         
-       coordinates:{
-       latitude:  25.007674,
-       longitude:  80.327612
-      },
-      },
-{         
-       coordinates:{
-       latitude:  25.389388,
-       longitude:  81.146667
-      },
-      },
-{         
-       coordinates:{
-       latitude:  24.980797,
-       longitude:  81.498620
-      },
-      },
-{         
-       coordinates:{
-       latitude:  27.329219,
-       longitude:  81.438073
-      },
-      },
-{         
-       coordinates:{
-       latitude:  27.745006,
-       longitude:  82.213245
-      },
-      },
-{         
-       coordinates:{
-       latitude:  27.468125,
-       longitude:  80.071549
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.507237,
-       longitude:  81.152978
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.382363,
-       longitude:  81.413316
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.609043,
-       longitude:  80.478665
-      },
-      },
-{         
-       coordinates:{
-       latitude:  27.203711,
-       longitude:  82.277213
-      },
-      },
-{         
-       coordinates:{
-       latitude:  25.540332,
-       longitude:  80.896440
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.958879,
-       longitude:  81.057151
-      },
-      },
-{         
-       coordinates:{
-       latitude:  25.485557,
-       longitude:  79.378447
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.122500,
-       longitude:  82.198747
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.359458,
-       longitude:  80.232999
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.476770,
-       longitude:  81.640378
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.084112,
-       longitude:  81.768204
-      },
-      },
-{         
-       coordinates:{
-       latitude:  27.560668,
-       longitude:  80.582656
-      },
-      },
-{         
-       coordinates:{
-       latitude:  27.509522,
-       longitude:  79.412969
-      },
-      },
-{         
-       coordinates:{
-       latitude:  27.708302,
-       longitude:  82.333927
-      },
-      },
-{         
-       coordinates:{
-       latitude:  27.065941,
-       longitude:  80.713554
-      },
-      },
-{         
-       coordinates:{
-       latitude:  25.255932,
-       longitude:  81.943538
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.892774,
-       longitude:  82.245358
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.511713,
-       longitude:  80.794263
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.654330,
-       longitude:  80.540443
-      },
-      },
-{         
-       coordinates:{
-       latitude:  27.165315,
-       longitude:  81.236223
-      },
-      },
-{         
-       coordinates:{
-       latitude:  25.947940,
-       longitude:  82.264050
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.468415,
-       longitude:  82.481468
-      },
-      },
-{         
-       coordinates:{
-       latitude:  27.068974,
-       longitude:  81.060655
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.337975,
-       longitude:  80.750627
-      },
-      },
-{         
-       coordinates:{
-       latitude:  27.265680,
-       longitude:  79.721870
-      },
-      },
-{         
-       coordinates:{
-       latitude:  25.439029,
-       longitude:  81.811042
-      },
-      },
-{         
-       coordinates:{
-       latitude:  25.118962,
-       longitude:  80.892605
-      },
-      },
-{         
-       coordinates:{
-       latitude:  25.368394,
-       longitude:  81.613985
-      },
-      },
-{         
-       coordinates:{
-       latitude:  27.744095,
-       longitude:  81.481232
-      },
-      },
-{         
-       coordinates:{
-       latitude:  27.630388,
-       longitude:  82.416385
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.281980,
-       longitude:  81.770336
-      },
-      },
-{         
-       coordinates:{
-       latitude:  27.631333,
-       longitude:  79.968240
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.361622,
-       longitude:  80.451424
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.036857,
-       longitude:  82.011684
-      },
-      },
-{         
-       coordinates:{
-       latitude:  27.554725,
-       longitude:  80.958231
-      },
-      },
-{         
-       coordinates:{
-       latitude:  27.415067,
-       longitude:  81.934597
-      },
-      },
-{         
-       coordinates:{
-       latitude:  27.806583,
-       longitude:  80.152523
-      },
-      },
-{         
-       coordinates:{
-       latitude:  25.313663,
-       longitude:  82.045229
-      },
-      },
-{         
-       coordinates:{
-       latitude:  25.337330,
-       longitude:  82.424198
-      },
-      },
-{         
-       coordinates:{
-       latitude:  25.238012,
-       longitude:  80.075770
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.689963,
-       longitude:  82.258782
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.689474,
-       longitude:  80.611402
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.482114,
-       longitude:  82.246823
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.655577,
-       longitude:  80.877646
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.181858,
-       longitude:  80.926925
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.698671,
-       longitude:  79.915544
-      },
-      },
-{         
-       coordinates:{
-       latitude:  27.115744,
-       longitude:  80.284792
-      },
-      },
-{         
-       coordinates:{
-       latitude:  25.449569,
-       longitude:  81.004921
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.928406,
-       longitude:  80.152645
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.651128,
-       longitude:  80.275456
-      },
-      },
-{         
-       coordinates:{
-       latitude:  27.732994,
-       longitude:  82.323164
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.843754,
-       longitude:  80.374163
-      },
-      },
-{         
-       coordinates:{
-       latitude:  25.009618,
-       longitude:  80.207775
-      },
-      },
-{         
-       coordinates:{
-       latitude:  27.317017,
-       longitude:  80.959858
-      },
-      },
-{         
-       coordinates:{
-       latitude:  27.087872,
-       longitude:  80.278640
-      },
-      },
-{         
-       coordinates:{
-       latitude:  27.648352,
-       longitude:  80.453095
-      },
-      },
-{         
-       coordinates:{
-       latitude:  25.526681,
-       longitude:  80.303210
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.884337,
-       longitude:  80.616202
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.885761,
-       longitude:  82.582500
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.455614,
-       longitude:  81.650347
-      },
-      },
-{         
-       coordinates:{
-       latitude:  25.569628,
-       longitude:  80.370339
-      },
-      },
-{         
-       coordinates:{
-       latitude:  25.234579,
-       longitude:  80.734116
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.141507,
-       longitude:  82.511626
-      },
-      },
-{         
-       coordinates:{
-       latitude:  27.392963,
-       longitude:  82.027903
-      },
-      },
-{         
-       coordinates:{
-       latitude:  25.733804,
-       longitude:  82.369654
-      },
-      },
-{         
-       coordinates:{
-       latitude:  25.352518,
-       longitude:  81.124410
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.143050,
-       longitude:  81.276936
-      },
-      },
-{         
-       coordinates:{
-       latitude:  27.574414,
-       longitude:  81.206564
-      },
-      },
-{         
-       coordinates:{
-       latitude:  25.840319,
-       longitude:  81.921689
-      },
-      },
-{         
-       coordinates:{
-       latitude:  27.695053,
-       longitude:  82.101841
-      },
-      },
-{         
-       coordinates:{
-       latitude:  25.487142,
-       longitude:  81.328786
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.810120,
-       longitude:  80.146513
-      },
-      },
-{         
-       coordinates:{
-       latitude:  26.050938,
-       longitude:  81.858181
-      },
-      },
-{         
-       coordinates:{
-       latitude:  27.155133,
-       longitude:  79.428750
-      },
+
+	// generate database from here
+
+},
+{
+ coordinates:{
+ latitude:  27.109438,
+ longitude:  80.517786
+},
+},
+{
+ coordinates:{
+ latitude:  25.953424,
+ longitude:  80.625813
+},
+},
+{
+ coordinates:{
+ latitude:  26.281308,
+ longitude:  79.756649
+},
+},
+{
+ coordinates:{
+ latitude:  27.788245,
+ longitude:  81.316841
+},
+},
+{
+ coordinates:{
+ latitude:  27.655331,
+ longitude:  82.358606
+},
+},
+{
+ coordinates:{
+ latitude:  27.782226,
+ longitude:  79.724244
+},
+},
+{
+ coordinates:{
+ latitude:  26.069584,
+ longitude:  81.851098
+},
+},
+{
+ coordinates:{
+ latitude:  27.684129,
+ longitude:  82.572085
+},
+},
+{
+ coordinates:{
+ latitude:  26.195110,
+ longitude:  79.410159
+},
+},
+{
+ coordinates:{
+ latitude:  26.473158,
+ longitude:  80.418802
+},
+},
+{
+ coordinates:{
+ latitude:  27.527478,
+ longitude:  81.584477
+},
+},
+{
+ coordinates:{
+ latitude:  26.168752,
+ longitude:  80.132988
+},
+},
+{
+ coordinates:{
+ latitude:  26.909236,
+ longitude:  80.073481
+},
+},
+{
+ coordinates:{
+ latitude:  26.907956,
+ longitude:  82.208372
+},
+},
+{
+ coordinates:{
+ latitude:  27.415258,
+ longitude:  81.073890
+},
+},
+{
+ coordinates:{
+ latitude:  27.191275,
+ longitude:  80.282462
+},
+},
+{
+ coordinates:{
+ latitude:  25.619372,
+ longitude:  81.846841
+},
+},
+{
+ coordinates:{
+ latitude:  26.331044,
+ longitude:  81.478985
+},
+},
+{
+ coordinates:{
+ latitude:  25.581570,
+ longitude:  79.843810
+},
+},
+{
+ coordinates:{
+ latitude:  27.042914,
+ longitude:  80.192645
+},
+},
+{
+ coordinates:{
+ latitude:  27.567156,
+ longitude:  81.699170
+},
+},
+{
+ coordinates:{
+ latitude:  27.731628,
+ longitude:  80.544238
+},
+},
+{
+ coordinates:{
+ latitude:  26.950646,
+ longitude:  82.333645
+},
+},
+{
+ coordinates:{
+ latitude:  25.794259,
+ longitude:  81.910312
+},
+},
+{
+ coordinates:{
+ latitude:  27.395401,
+ longitude:  79.615344
+},
+},
+{
+ coordinates:{
+ latitude:  24.984184,
+ longitude:  81.057690
+},
+},
+{
+ coordinates:{
+ latitude:  27.343273,
+ longitude:  80.791155
+},
+},
+{
+ coordinates:{
+ latitude:  26.231734,
+ longitude:  82.224014
+},
+},
+{
+ coordinates:{
+ latitude:  25.547402,
+ longitude:  80.519684
+},
+},
+{
+ coordinates:{
+ latitude:  26.134404,
+ longitude:  79.377968
+},
+},
+{
+ coordinates:{
+ latitude:  27.565702,
+ longitude:  81.223062
+},
+},
+{
+ coordinates:{
+ latitude:  25.471728,
+ longitude:  81.043431
+},
+},
+{
+ coordinates:{
+ latitude:  26.677712,
+ longitude:  82.513718
+},
+},
+{
+ coordinates:{
+ latitude:  25.666999,
+ longitude:  80.896633
+},
+},
+{
+ coordinates:{
+ latitude:  27.575134,
+ longitude:  82.001931
+},
+},
+{
+ coordinates:{
+ latitude:  25.538274,
+ longitude:  79.603638
+},
+},
+{
+ coordinates:{
+ latitude:  26.166673,
+ longitude:  79.289927
+},
+},
+{
+ coordinates:{
+ latitude:  26.262742,
+ longitude:  82.381607
+},
+},
+{
+ coordinates:{
+ latitude:  26.519245,
+ longitude:  79.826788
+},
+},
+{
+ coordinates:{
+ latitude:  25.167230,
+ longitude:  80.897601
+},
+},
+{
+ coordinates:{
+ latitude:  28.408237,
+ longitude:  79.041753
+},
+},
+{
+ coordinates:{
+ latitude:  27.670541,
+ longitude:  79.357000
+},
+},
+{
+ coordinates:{
+ latitude:  28.745615,
+ longitude:  78.259957
+},
+},
+{
+ coordinates:{
+ latitude:  27.554041,
+ longitude:  78.672046
+},
+},
+{
+ coordinates:{
+ latitude:  27.311942,
+ longitude:  80.042257
+},
+},
+{
+ coordinates:{
+ latitude:  28.911373,
+ longitude:  77.272315
+},
+},
+{
+ coordinates:{
+ latitude:  28.073215,
+ longitude:  78.939282
+},
+},
+{
+ coordinates:{
+ latitude:  27.769479,
+ longitude:  79.768087
+},
+},
+{
+ coordinates:{
+ latitude:  28.681798,
+ longitude:  79.907295
+},
+},
+{
+ coordinates:{
+ latitude:  28.929645,
+ longitude:  77.640112
+},
+},
+{
+ coordinates:{
+ latitude:  27.445825,
+ longitude:  78.664596
+},
+},
+{
+ coordinates:{
+ latitude:  28.369234,
+ longitude:  77.132792
+},
+},
+{
+ coordinates:{
+ latitude:  27.723304,
+ longitude:  78.454029
+},
+},
+{
+ coordinates:{
+ latitude:  28.755584,
+ longitude:  77.417571
+},
+},
+{
+ coordinates:{
+ latitude:  28.066812,
+ longitude:  79.158843
+},
+},
+{
+ coordinates:{
+ latitude:  28.498294,
+ longitude:  77.647270
+},
+},
+{
+ coordinates:{
+ latitude:  28.882485,
+ longitude:  80.860677
+},
+},
+{
+ coordinates:{
+ latitude:  27.539621,
+ longitude:  77.877842
+},
+},
+{
+ coordinates:{
+ latitude:  28.419150,
+ longitude:  78.424986
+},
+},
+{
+ coordinates:{
+ latitude:  27.047873,
+ longitude:  79.814627
+},
+},
+{
+ coordinates:{
+ latitude:  28.934683,
+ longitude:  80.451863
+},
+},
+{
+ coordinates:{
+ latitude:  28.419755,
+ longitude:  78.779019
+},
+},
+{
+ coordinates:{
+ latitude:  28.724235,
+ longitude:  77.352530
+},
+},
+{
+ coordinates:{
+ latitude:  28.600516,
+ longitude:  80.622782
+},
+},
+{
+ coordinates:{
+ latitude:  28.646656,
+ longitude:  79.307887
+},
+},
+{
+ coordinates:{
+ latitude:  26.994166,
+ longitude:  77.127489
+},
+},
+{
+ coordinates:{
+ latitude:  28.912188,
+ longitude:  77.464707
+},
+},
+{
+ coordinates:{
+ latitude:  28.068958,
+ longitude:  77.258905
+},
+},
+{
+ coordinates:{
+ latitude:  26.822879,
+ longitude:  80.894805
+},
+},
+{
+ coordinates:{
+ latitude:  28.437982,
+ longitude:  79.684974
+},
+},
+{
+ coordinates:{
+ latitude:  27.603972,
+ longitude:  77.742046
+},
+},
+{
+ coordinates:{
+ latitude:  28.122584,
+ longitude:  79.301090
+},
+},
+{
+ coordinates:{
+ latitude:  28.566583,
+ longitude:  80.157176
+},
+},
+{
+ coordinates:{
+ latitude:  28.110959,
+ longitude:  78.218776
+},
+},
+{
+ coordinates:{
+ latitude:  27.229451,
+ longitude:  79.642417
+},
+},
+{
+ coordinates:{
+ latitude:  27.417874,
+ longitude:  78.702054
+},
+},
+{
+ coordinates:{
+ latitude:  28.202405,
+ longitude:  79.618460
+},
+},
+{
+ coordinates:{
+ latitude:  28.329838,
+ longitude:  77.115252
+},
+},
+{
+ coordinates:{
+ latitude:  27.832487,
+ longitude:  77.713592
+},
+},
+{
+ coordinates:{
+ latitude:  28.645660,
+ longitude:  79.939827
+},
+},
+{
+ coordinates:{
+ latitude:  28.821404,
+ longitude:  77.189683
+},
+},
+{
+ coordinates:{
+ latitude:  27.906318,
+ longitude:  78.021845
+},
+},
+{
+ coordinates:{
+ latitude:  28.961939,
+ longitude:  79.420868
+},
+},
+{
+ coordinates:{
+ latitude:  26.999452,
+ longitude:  79.471210
+},
+},
+{
+ coordinates:{
+ latitude:  27.131038,
+ longitude:  77.906383
+},
+},
+{
+ coordinates:{
+ latitude:  27.008324,
+ longitude:  79.481536
+},
+},
+{
+ coordinates:{
+ latitude:  28.944220,
+ longitude:  79.518141
+},
+},
+{
+ coordinates:{
+ latitude:  28.199199,
+ longitude:  79.819512
+},
+},
+{
+ coordinates:{
+ latitude:  27.913487,
+ longitude:  80.982713
+},
+},
+{
+ coordinates:{
+ latitude:  26.863582,
+ longitude:  77.584157
+},
+},
+{
+ coordinates:{
+ latitude:  27.828152,
+ longitude:  78.368871
+},
+},
+{
+ coordinates:{
+ latitude:  27.529772,
+ longitude:  78.284027
+},
+},
+{
+ coordinates:{
+ latitude:  28.940592,
+ longitude:  79.477451
+},
+},
+{
+ coordinates:{
+ latitude:  28.158463,
+ longitude:  80.576733
+},
+},
+{
+ coordinates:{
+ latitude:  28.562643,
+ longitude:  79.626705
+},
+},
+{
+ coordinates:{
+ latitude:  28.650590,
+ longitude:  78.616935
+},
+},
+{
+ coordinates:{
+ latitude:  28.865168,
+ longitude:  78.050973
+},
+},
+{
+ coordinates:{
+ latitude:  28.674646,
+ longitude:  80.930899
+},
+},
+{
+ coordinates:{
+ latitude:  28.392379,
+ longitude:  80.400184
+},
+},
+{
+ coordinates:{
+ latitude:  27.089593,
+ longitude:  79.659059
+},
+},
+{
+ coordinates:{
+ latitude:  27.002003,
+ longitude:  77.616981
+},
+},
+{
+ coordinates:{
+ latitude:  27.578306,
+ longitude:  78.265335
+},
+},
+{
+ coordinates:{
+ latitude:  27.737312,
+ longitude:  79.009501
+},
+},
+{
+ coordinates:{
+ latitude:  27.074993,
+ longitude:  78.290510
+},
+},
+{
+ coordinates:{
+ latitude:  27.825089,
+ longitude:  77.502711
+},
+},
+{
+ coordinates:{
+ latitude:  27.533211,
+ longitude:  79.505846
+},
+},
+{
+ coordinates:{
+ latitude:  27.687230,
+ longitude:  77.750316
+},
+},
+{
+ coordinates:{
+ latitude:  27.683391,
+ longitude:  77.905568
+},
+},
+{
+ coordinates:{
+ latitude:  28.147458,
+ longitude:  79.953425
+},
+},
+{
+ coordinates:{
+ latitude:  27.509225,
+ longitude:  80.576782
+},
+},
+{
+ coordinates:{
+ latitude:  28.617425,
+ longitude:  80.936497
+},
+},
+{
+ coordinates:{
+ latitude:  26.974224,
+ longitude:  79.232930
+},
+},
+{
+ coordinates:{
+ latitude:  27.295668,
+ longitude:  78.900631
+},
+},
+{
+ coordinates:{
+ latitude:  28.023335,
+ longitude:  78.033329
+},
+},
+{
+ coordinates:{
+ latitude:  27.571151,
+ longitude:  79.892513
+},
+
 
 
 
 	 // to here
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-  }  
+
+
+
+
+
+
+
+
+
+
+
+
+  }
   ]
 }
 
@@ -669,22 +761,22 @@ super(props);
 
 
 
-    
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
 	return (
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
       <View style ={styles.container}>
-  
+
 
 <Picker
   selectedValue={this.state.language}
@@ -693,7 +785,36 @@ super(props);
     this.setState({language: itemValue})
   }>
   <Picker.Item label="Uttar Pradesh" value="Uttar Pradesh" />
+  <Picker.Item label="Andra Pradesh" value="Andra Pradesh" />
+  <Picker.Item label="Arunachal Pradesh" value="Arunachal Pradesh" />
+  <Picker.Item label="Assam" value="Assam" />
+  <Picker.Item label="Bihar" value="Bihar" />
+  <Picker.Item label="Chhattisgarh" value="Chhattisgarh" />
+  <Picker.Item label="Goa" value="Goa" />
+  <Picker.Item label="Gujarat" value="Gujarat" />
+  <Picker.Item label="Haryana" value="Haryana" />
+  <Picker.Item label="Himachal Pradesh" value="Himachal Pradesh" />
+  <Picker.Item label="Jammu and Kashmir" value="Jammu and Kashmir" />
+  <Picker.Item label="Jharkhand" value="Jharkhand" />
+  <Picker.Item label="Karnataka" value="Karnataka" />
+  <Picker.Item label="Kerala" value="Kerala" />
+  <Picker.Item label="Maharashtra" value="Maharashtra" />
+  <Picker.Item label="Manipur" value="Manipur" />
+  <Picker.Item label="Meghalaya" value="Meghalaya" />
+  <Picker.Item label="Mizoram" value="Mizoram" />
+  <Picker.Item label="Nagaland" value="Nagaland" />
+  <Picker.Item label="Orissa" value="Orissa" />
+  <Picker.Item label="Punjab" value="Punjab" />
+  <Picker.Item label="Rajasthan" value="Rajasthan" />
+  <Picker.Item label="Sikkim" value="Sikkim" />
+  <Picker.Item label="Telagana" value="Telagana" />
+  <Picker.Item label="Tripura" value="Tripura" />
+  <Picker.Item label="Uttaranchal" value="Uttaranchal" />
+  <Picker.Item label="Uttar Pradesh" value="Uttar Pradesh" />
+  <Picker.Item label="West Bengal" value="West Bengal" />
 </Picker>
+
+
 
 
 
@@ -712,22 +833,22 @@ super(props);
             longitude: 80.685005,
             latitudeDelta: 5,
             longitudeDelta: 5,
-            
+
           }}
-		
+
         >
-         
+
 	{this.state.markers.map(marker => (
-    <MapView.Marker 
+    <MapView.Marker
       coordinate={marker.coordinates}
       title= ""              //{marker.title}
       image={require('../assets/heatmarker.png')}
 	  style={{opacity: 0.5}}
 	/>
   ))}
-			
-        
-		 
+
+
+
         </MapView>
       </View>
     );
