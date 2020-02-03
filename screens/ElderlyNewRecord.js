@@ -1,167 +1,302 @@
-import React from 'react';
-import {View,Text,StyleSheet,Image,KeyboardAvoidingView,StatusBar,LayoutAnimation} from 'react-native';
-import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
+import React, { Component } from "react";
+import {
+  Button,
+  View,
+  StyleSheet,
+  Text,
+  ScrollView,
+  TextInput,
+  Dimensions,
+  KeyboardAvoidingView,
+  ImageBackground,
+  ImageBackgroundComponent
+} from "react-native";
 import * as firebase from 'firebase';
+import { Header } from "react-native-elements";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import { Dropdown } from "react-native-material-dropdown";
+import * as ImagePicker from 'expo-image-picker';
 
-
-export default class RegisterScreen extends React.Component{
-
-    static navigationOptions = {
-        header: null,
-      };
-
-    state= {
-        name:"",
-        email: "",
-        adhar:"",
-        number:"",
-        errorMessage: null,
-    };
-
-    handleAdd = () => {
-        firebase.database().ref('/Elder').push(state)
-        .then(
-          this.props.navigation.navigate('Home')
-        )
-        .catch(error => this.setState({errorMessage: error.message}));
-    };
-
-
-
-    render() {
-        LayoutAnimation.easeInEaseOut();
-
-        return(
-            
-            <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
-                <View style={styles.container}>
-                    <TouchableOpacity>
-                         
-                    </TouchableOpacity>
-                <StatusBar barStyle="light-content"></StatusBar>
-                    <View style={styles.logoBox}>
-                        <Text style={styles.head}>{`Elder Person Record`}</Text>
-                    </View>
-
-                    <View style={styles.errorBox}>
-                    {this.state.errorMessage && <Text style={styles.error}> {this.state.errorMessage} </Text>}
-                    </View>
-
-                    <View style={styles.form}>
-                        <View >
-                            <TextInput
-                            placeholder='Full Name' 
-                            style={styles.input}
-                            autoCapitalize="none" 
-                            onChangeText={name => this.setState({name})}
-                            value={this.state.name}></TextInput>
-                        </View>
-                        <View >
-                            <TextInput 
-                            placeholder='Email'
-                            style={styles.input}
-                            autoCapitalize="none" 
-                            onChangeText={email => this.setState({email})}
-                            value={this.state.email}></TextInput>
-                        </View>
-                        <View >
-                            <TextInput
-                            placeholder='Adhar Card Number' 
-                            style={styles.input}
-                            autoCapitalize="none" 
-                            onChangeText={adhar => this.setState({adhar})}
-                            value={this.state.adhar}></TextInput>
-                        </View>
-                        <View >
-                            <TextInput
-                            placeholder='Mobile Number' 
-                            style={styles.input}
-                            autoCapitalize="none" 
-                            onChangeText={number => this.setState({number})}
-                            value={this.state.number}></TextInput>
-                        </View>
-
-                        <TouchableOpacity 
-                        style={styles.button}
-                        onPress={()=>{
-                            this.handleAdd;
-                        }}
-                        >
-                            <Text style={{color:"#FFF", fontWeight:"500"}}>Add</Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-            </KeyboardAvoidingView>
-        )
+export default class CrimeRecordAdd extends Component {
+    
+    state = {
+      Name: "",
+      Address: "",
+      PhoneNumber:"",
+      RelativeContact:"",
+      Age: "",
+      Aadhar: "",
+      Gender:""
     }
+
+    chooseImage = async () => {
+        //let result=await ImagePicker.launchCameraAsync();
+        let result = await ImagePicker.launchImageLibraryAsync();
+        
+        // this.setState({ image:blob.data.name })
+        if (!result.cancelled) {
+          this.uploadImage(result.uri,this.state.SuspectName)
+            .then(() => {
+              Alert.alert("Success");
+            })
+            .catch(error => {
+              Alert.alert(error);
+            });
+        }
+      };
+      uploadImage = async (uri,imageName) => {
+        const response = await fetch(uri);
+        blob = await response.blob();
+        var ref = firebase
+          .storage()
+          .ref()
+          .child("CrimeRecord/" + imageName);
+          photo=blob.data.name
+        return ref.put(blob);
+        
+      };
+  
+
+    // chooseImage = async () => {
+    //   //let result=await ImagePicker.launchCameraAsync();
+    //   let result = await ImagePicker.launchImageLibraryAsync();
+      
+    //   // this.setState({ image:blob.data.name })
+    //   if (!result.cancelled) {
+    //     this.uploadImage(result.uri,this.state.SuspectName)
+    //       .then(() => {
+    //         Alert.alert("Success");
+    //       })
+    //       .catch(error => {
+    //         Alert.alert(error);
+    //       });
+    //   }
+    // };
+    // uploadImage = async (uri,imageName) => {
+    //   const response = await fetch(uri);
+    //   blob = await response.blob();
+    //   var ref = firebase
+    //     .storage()
+    //     .ref()
+    //     .child("CrimeRecord/" + imageName);
+    //     photo=blob.data.name
+    //   return ref.put(blob);
+      
+    // };
+  
+  onePressed() {
+    alert("yes");
+  }
+  twoPressed() {
+    alert("no");
+  }
+
+  render() {
+
+    let data = [
+        {
+          value: "Female"
+        },
+        {
+          value: "Male"
+        },
+        {
+          value: "Other"
+        }
+      ];
+
+    return (
+      <ImageBackground
+        source={require("../assets/Back.jpg")}
+        style={{ width: "100%", height: "100%" }}
+      >
+        <Header
+          leftComponent={{
+            icon: "home",
+            color: "#fff",
+            onPress: () => this.props.navigation.navigate("Home")
+          }}
+          centerComponent={{
+            text: "Add Record",
+            style: {
+              color: "#fff",
+              fontWeight: "bold",
+              fontSize: 18,
+              letterSpacing: 1
+            }
+          }}
+          rightComponent={{
+            icon: "close",
+            color: "#fff",
+            onPress: () => this.props.navigation.navigate("Elder")
+          }}
+          backgroundColor="#1C8ADB"
+        />
+        <KeyboardAvoidingView
+          style={styles.container}
+          behavior="padding"
+          enabled
+        >
+          <ScrollView>
+            <View style={styles.entrybox}>
+              <Text style={styles.text}>Full Name</Text>
+              <TextInput
+                style={styles.input}
+                placeholder="Full Name"
+                placeholderTextColor="#000"
+                onChangeText={Name => this.setState({Name})}
+                value={this.state.Name}
+              />
+            </View>
+
+            <View style={styles.entrybox}>
+              <Text style={styles.text}>Address</Text>
+              <TextInput
+                style={styles.input}
+                placeholder="Address"
+                placeholderTextColor="#000"
+                onChangeText={Address => this.setState({Address})}
+                value={this.state.Address}
+              />
+            </View>
+
+            <View style={styles.entrybox}>
+              <Text style={styles.text}>Contact Number</Text>
+              <TextInput
+                numeric
+                style={styles.input}
+                placeholder="Phone Number"
+                placeholderTextColor="#000"
+                onChangeText={PhoneNumber => this.setState({PhoneNumber})}
+                value={this.state.PhoneNumber}
+              />
+            </View>
+
+            <View style={styles.entrybox}>
+              <Text style={styles.text}>Close Relative Contact</Text>
+              <TextInput
+                numeric
+                style={styles.input}
+                placeholder="RelativeContact"
+                placeholderTextColor="#000"
+                onChangeText={RelativeContact => this.setState({RelativeContact})}
+                value={this.state.RelativeContact}
+              />
+            </View>
+
+
+            <View style={styles.entrybox}>
+              <Text style={styles.text}>Age</Text>
+              <TextInput
+                numeric
+                style={styles.input}
+                placeholder="Age"
+                placeholderTextColor="#000"
+                onChangeText={Age => this.setState({Age})}
+                value={this.state.Age}
+              />
+            </View>
+
+            <View style={styles.entrybox}>
+              <Text style={styles.text}>Aadhar Number</Text>
+              <TextInput
+                style={styles.input}
+                placeholder="Aadhar Number"
+                placeholderTextColor="#000"
+                onChangeText={Aadhar => this.setState({Aadhar})}
+                value={this.state.Aadhar}
+              />
+            </View>
+
+            <View style={styles.entrybox}>
+              <Text style={styles.text}>Gender</Text>
+              <Dropdown
+                style={styles.drop}
+                onChangeText={Gender => this.setState({ Gender })}
+                value={this.state.Gender}
+                baseColor="#1C8ADB"
+                data={data}
+              />
+            </View>
+
+            <View style={styles.entrybox}>
+              <Text style={styles.text}>Address Proof</Text>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={this.chooseImage}
+              >
+                <Text>Upload</Text>
+              </TouchableOpacity>
+            </View>
+
+            <View style={{ paddingBottom: 100 }}>
+              <TouchableOpacity
+                style={styles.button}
+                title="Submit Form"
+                value="Submit"
+                onPress={()=>{firebase.database().ref('/ElderlyManagement').push(this.state).then(this.props.navigation.navigate("Home"))}}
+              >
+                <Text
+                  style={{ color: "#FFF", fontWeight: "400", fontSize: 22 }}
+                >
+                  Submit
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </ScrollView>
+        </KeyboardAvoidingView>
+      </ImageBackground>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        translateY:50
-    },
-    logo:{
-        width:100,
-        height:150,
-        alignItems:"center"
-        },
-
-    logoBox:{
-        translateY:-70,
-        alignItems:"center"
-        },
-    head: {
-        
-        fontSize:25,
-        fontWeight:"600",
-        textAlign: "center"
-    },
-    
-    form:{
-        translateY:-70
-    },
-    inputTitle:{
-        marginBottom:10,
-        color:"#8A8F9E",
-        fontSize: 20,
-        textTransform: "uppercase"
-    },
-    input: {
-        borderBottomColor:"#8A8F9E",
-        borderBottomWidth: 2,
-        height:40,
-        fontSize:20,
-        color: "#161F3D",
-        marginBottom:20,
-        marginTop:-5,
-    },
-    button:{
-        marginHorizontal: -30,
-        backgroundColor:"#385da8",
-        borderRadius:15,
-        height:40,
-        alignItems: "center",
-        justifyContent:"center"
-    },
-    signup:{
-        fontWeight: "600",
-        color:"#ff0000"
-    },
-    error:{
-        color: "#ff0000",
-        fontSize:20,
-        fontWeight:"600",
-        textAlign:"center"
-    },
-    errorBox:{
-        backgroundColor: "#ffffff",
-        alignItems:"center",
-        justifyContent:"center",
-        marginHorizontal:20,
-        translateY:-75,
-    },
-    
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    padding: 8,
+    paddingTop: 50
+  },
+  split: {
+    flexDirection: "row"
+  },
+  error: {
+    position: "absolute",
+    bottom: 0,
+    color: "red",
+    fontSize: 12
+  },
+  text: {
+    color: "#1C8ADB",
+    fontWeight: "bold",
+    fontSize: 22
+  },
+  form: {
+    flex: 1,
+    marginBottom: 60,
+    marginHorizontal: 30
+  },
+  input: {
+    borderBottomColor: "#1C8ADB",
+    borderBottomWidth: 2,
+    height: 40,
+    fontSize: 20,
+    color: "black"
+  },
+  drop: {
+    fontSize: 20
+  },
+  entrybox: {
+    flex: 1,
+    marginHorizontal: 10,
+    marginBottom: 20
+  },
+  button: {
+    backgroundColor: "#1C8ADB",
+    borderRadius: 40,
+    height: 50,
+    marginHorizontal: "10%",
+    alignItems: "center",
+    justifyContent: "center"
+  }
 });

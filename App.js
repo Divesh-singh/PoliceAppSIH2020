@@ -22,12 +22,14 @@ import CrimeRecordAdd from './screens/CrimeRecordAdd';
 import BeatManagementScreen from './screens/BeatManagementScreen';
 import ElderlyManagement from './screens/ElderlyManagement';
 import ElderlyNewRecord from './screens/ElderlyNewRecord';
+import ShowCrimeRecords from './screens/ShowCrimeRecords';
 
 
 
 import * as firebase from 'firebase';
 import FirManagementScreen from './screens/FirManagementScreen';
 import NocVerificationScreen from './screens/NocVerificationScreen';
+import CrimeStatsScreen from './screens/CrimeStatsScreen';
 
 var firebaseConfig = {
   apiKey: "AIzaSyAf79sr9bJjAHtQpJyQa7DVVNZvjwZ1zgQ",
@@ -117,9 +119,12 @@ const AppStack = createStackNavigator({
   goBack: AppTabNavigator,    //AppTabNavigator is applied for android back button
   crimeRecord: CrimeRecordScreen,
   crimeAdd: CrimeRecordAdd,
+  showCrime: ShowCrimeRecords,
   BeatManagement: BeatManagementScreen,
   FirManagement: FirManagementScreen,
   NocVerification: NocVerificationScreen,
+  CrimeStats: CrimeStatsScreen,
+  RecentActivity: NotificationScreen,
   HeatMap: HeatMapScreen,
   Elder: ElderlyManagement,
   ElderN: ElderlyNewRecord

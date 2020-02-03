@@ -116,14 +116,14 @@ export default class HomeScreen extends React.Component{
                     </View>
                     </TouchableOpacity>  
                     <TouchableOpacity
-                         onPress={()=>{this.props.navigation.navigate("HeatMap");}}
+                         onPress={()=>{this.props.navigation.navigate("CrimeStats");}}
                     >
                     <View  style={styles.tab}>
                       <Text style={styles.item}>Criminal statistics</Text>
                       <Image  style={styles.img}  source={require('../assets/6.png')}/>
                     </View>
                     </TouchableOpacity>  
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={()=> {this.props.navigation.navigate("RecentActivity")}}>
                     <View  style={styles.tab}>
                       <Text style={styles.item}>Recent Activities</Text>
                       <Image  style={styles.img}  source={require('../assets/6.png')}/>

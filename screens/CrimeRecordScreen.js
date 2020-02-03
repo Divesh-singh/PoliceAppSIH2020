@@ -37,10 +37,7 @@ export default class CrimeRecords extends React.Component{
                 </View>
 				
 				<Image style={styles.mainicon}  source={require('../assets//cricon.png')}/>
-				
-				
-				
-                          
+				                     
               <View style={styles.container}>
                 <ScrollView>
                   <TouchableOpacity onPress={()=> this.props.navigation.navigate("crimeAdd")}>
@@ -49,9 +46,9 @@ export default class CrimeRecords extends React.Component{
                       <Image style={styles.img}  source={require('../assets//adddb.png')}/>
                     </View>
                     </TouchableOpacity>  
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={()=> this.props.navigation.navigate("showCrime")}>
                     <View  style={styles.tab}>
-                      <Text style={styles.item}>Fetch Record</Text>
+                      <Text style={styles.item}>View Record</Text>
                       <Image  style={styles.img}  source={require('../assets//fetchdb.png')}/>
                     </View>
                     </TouchableOpacity>  
