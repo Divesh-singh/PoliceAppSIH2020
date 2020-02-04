@@ -13,6 +13,10 @@ export default class NocVerificationScreen extends React.Component{
 
             <View style ={styles.container}>
                 <Text>NocVerificationScreen Screen....</Text>
+
+                <TouchableOpacity onPress={() => Linking.openURL('maps://app?saddr=Cupertino&San+Francisco')}>
+                                <Text>Navigate</Text>
+                 </TouchableOpacity>
             </View>
         );
     }
