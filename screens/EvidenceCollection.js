@@ -122,7 +122,7 @@ export default class EvidenceCollection extends Component {
           rightComponent={{
             icon: "close",
             color: "#fff",
-            onPress: () => this.props.navigation.navigate("crimeRecord")
+            onPress: () => this.props.navigation.navigate("BeatManagement")
           }}
           backgroundColor="#1C8ADB"
         />

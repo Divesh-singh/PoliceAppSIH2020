@@ -47,7 +47,7 @@ export default class ElderlyManagement extends Component {
           rightComponent={{
             icon: "close",
             color: "#1C8ADB",
-            onPress: () => this.props.navigation.navigate("Home")
+            onPress: () => this.props.navigation.navigate("BeatManagement")
           }}
           backgroundColor="#fff"
         />
@@ -68,11 +68,7 @@ export default class ElderlyManagement extends Component {
                 <Text style={styles.item}>View Record</Text>
               </View>
             </TouchableOpacity>
-            <TouchableOpacity>
-              <View style={styles.tab}>
-                <Text style={styles.item}>Delete Record</Text>
-              </View>
-            </TouchableOpacity>
+
           </ScrollView>
         </View>
       </ImageBackground>
