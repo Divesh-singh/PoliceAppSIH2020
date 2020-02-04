@@ -1,12 +1,11 @@
 import React from 'react';
 import {View,Text,Image,StyleSheet, Button,ImageBackground,ScrollView,rgba,LayoutAnimation, TouchableOpacity} from 'react-native';
 import {Header} from 'react-native-elements';
-
+import Ripple from "react-native-material-ripple";
 import {Ionicons} from '@expo/vector-icons';
 import {AntDesign} from '@expo/vector-icons';
 import * as firebase from 'firebase';
 import LogoTitle from './LogoScreen';
-
 export default class HomeScreen extends React.Component{
 
     state ={
@@ -52,11 +51,11 @@ export default class HomeScreen extends React.Component{
           <ImageBackground
           source={require('../assets/Back.jpg')} style={{width: '100%', height: '100%'}}>
                <Header
-                    leftComponent={{
-                      icon: 'menu',
-                      color: "#1C8ADB",
-                      onPress: () => alert('Menu'),
-                    }}
+                    // leftComponent={{
+                    //   icon: 'menu',
+                    //   color: "#1C8ADB",
+                    //   onPress: () => alert('Menu'),
+                    // }}
                     centerComponent = {<LogoTitle />}
                     
                     rightComponent={{
@@ -69,111 +68,166 @@ export default class HomeScreen extends React.Component{
                   />
                 
 
-            <View style={styles.container}>
-                {/* <Text>Hello, {this.state.email}!</Text>
-
-                <TouchableOpacity 
-                style={{marginTop:32}}
-                onPress={this.signOutUser}
+                <View style={styles.container}>
+          <ScrollView>
+            <View style={styles.splitupper}>
+              <View style={styles.split}>
+                <Ripple
+                  rippleColor="#1C8ADB"
+                  backgroundColor="white"
+                  style={styles.tab}
+                  onPress={() => this.props.navigation.navigate("crimeRecord")}
                 >
-                    <Text>LogOut</Text>
-                </TouchableOpacity> */}
-
-        <ScrollView>
-                    <TouchableOpacity
-                      onPress={()=> this.props.navigation.navigate("crimeRecord")}
-                    >
-                    <View style={styles.tab_red} >
-                      <Text  style={styles.item} >Manage Crime Records</Text>
-                      <Image style={styles.img} source={require('../assets/1.png')}/>
-                    </View>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                    onPress={()=>{this.props.navigation.navigate("BeatManagement");}}
-                    >
-                    <View  style={styles.tab}>
-                      <Text style={styles.item}>Beat Management</Text>
-                      <Image  style={styles.img}  source={require('../assets/2.png')}/>
-                    </View>
-                    </TouchableOpacity>  
-
-                    <TouchableOpacity 
-                    onPress={()=>{this.props.navigation.navigate("FirManagement");}}
-                    >
-                    <View  style={styles.tab}>
-                      <Text style={styles.item}>Requested Fir</Text>
-                      <Image style={styles.img} source={require('../assets/3.png')}/>
-                    </View>
-                    </TouchableOpacity> 
-
-                    <TouchableOpacity
-                      onPress={()=>{this.props.navigation.navigate("NocVerification");}}
-                    >
-                    <View  style={styles.tab}>
-                      <Text style={styles.item}>NOC Verification</Text>
-                      <Image style={styles.img} source={require('../assets/4.png')}/>
-                    </View>
-                    </TouchableOpacity>  
-                    <TouchableOpacity
-                         onPress={()=>{this.props.navigation.navigate("CrimeStats");}}
-                    >
-                    <View  style={styles.tab}>
-                      <Text style={styles.item}>Criminal statistics</Text>
-                      <Image  style={styles.img}  source={require('../assets/6.png')}/>
-                    </View>
-                    </TouchableOpacity>  
-                    <TouchableOpacity onPress={()=> {this.props.navigation.navigate("RecentActivity")}}>
-                    <View  style={styles.tab}>
-                      <Text style={styles.item}>Recent Activities</Text>
-                      <Image  style={styles.img}  source={require('../assets/6.png')}/>
-                    </View>
-                    </TouchableOpacity>  
-                </ScrollView>
+                  <Image
+                    style={styles.img}
+                    source={require("../assets/cricon.png")}
+                  />
+                  <Text
+                    style={styles.item}
+                  >
+                  CRIME RECORDS
+                  </Text>
+                </Ripple>
+              </View>
+              <View style={styles.split}>
+                <Ripple
+                  rippleColor="#1C8ADB"
+                  backgroundColor="white"
+                  style={styles.tab}
+                  onPress={() => this.props.navigation.navigate("BeatManagement")}
+                >
+                  <Image
+                  style={{alignItems: "center",
+                  height: 80,
+                  width: 80}}
+                    source={require("../assets/2.png")}
+                  />
+                  <Text style={styles.item}>MANAGE BEAT</Text>
+                </Ripple>
+              </View>
             </View>
+            <View style={styles.splitupper}>
+              <View style={styles.split}>
+                <Ripple
+                  rippleColor="#1C8ADB"
+                  backgroundColor="white"
+                  style={styles.tab}
+                  onPress={() => this.props.navigation.navigate("FirManagement")}
+                >
+                  <Image
+                    style={styles.img}
+                    source={require("../assets/3.png")}
+                  />
+    <Text style={styles.item}>MANAGE FIR</Text>
+                </Ripple>
+              </View>
+              <View style={styles.split}>
+                <Ripple
+                  rippleColor="#1C8ADB"
+                  backgroundColor="white"
+                  style={styles.tab}
+                  onPress={() => this.props.navigation.navigate("NocVerification")}
+                >
+                  <Image
+                    style={styles.img}
+                    source={require("../assets/4.png")}
+                  />
+                  <Text style={styles.item}>VERIFY NOC</Text>
+                </Ripple>
+              </View>
+            </View>
+            <View style={styles.splitupper}>
+              <View style={styles.split}>
+                <Ripple
+                  rippleColor="#1C8ADB"
+                  backgroundColor="white"
+                  style={styles.tab}
+                  onPress={() => this.props.navigation.navigate("CrimeStats")}
+                >
+                  <Image
+                    style={styles.img}
+                    source={require("../assets/5.png")}
+                  />
+                  <Text style={styles.item}>CRIMINAL STATS</Text>
+                </Ripple>
+              </View>
+              <View style={styles.split}>
+                <Ripple
+                  rippleColor="#1C8ADB"
+                  backgroundColor="white"
+                  style={styles.tab}
+                  onPress={() => this.props.navigation.navigate("RecentActivity")}
+                >
+                  <Image
+                    style={styles.img}
+                    source={require("../assets/6.png")}
+                  />
+                  <Text style={styles.item}>RECENT ACTIVITIES</Text>
+                </Ripple>
+              </View>
+            </View>
+            
+          </ScrollView>
+        </View>
             </ImageBackground>
         )
     } 
 }
 
 
-const style = StyleSheet.create({
-    container: {
-      flex: 1,
-    },
-  });
-  
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-      paddingTop: 10,
-      paddingHorizontal: 10,
+      padding:10
     },
-    img:{
-      position: "absolute",
-      right:10,
-      bottom:10,
-      alignItems:"center",
-      height:50,
-      width:50
+    splitupper: {
+      flex: 1,
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "center"
     },
-    tab:{
-      flexDirection:'row',
-      marginTop: 14,
+    split: {
+      flex: 1,
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "center",
+      marginTop: 6,
+      marginHorizontal:6,
+    },
+    sos: {
+      flex: 1,
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "center",
+      margin: 10
+    },
+    img: {
+      alignItems: "center",
+      height: 60,
+      width: 60
+    },
+    tab: {
+      marginTop: 10,
+      alignItems: "center",
+      justifyContent: "center",
+      textAlign: "center",
+      width: "100%",
+      height: 150,
       padding: 20,
-      backgroundColor: 'rgba(255,255,255,0.9)',
-      borderRadius:5,
-    },
-    tab_red:{
-      flexDirection:'row',
-      marginTop: 14,
-      padding: 20,
-      backgroundColor: 'rgba(255,0,0,0.65)',
-      borderRadius:5,
+      borderRadius: 8
     },
     item: {
-      alignItems:"center",
-      fontSize:20 ,
+      alignItems: "center",
+      fontSize: 20,
+      paddingTop:10,
+      fontWeight: "500",
+      textAlign: "center"
+    },
+    titleWrapper: {
+      backgroundColor: "transparent",
+      flex: 1,
+      justifyContent: "center",
+      alignItems: "center"
     }
   });
   

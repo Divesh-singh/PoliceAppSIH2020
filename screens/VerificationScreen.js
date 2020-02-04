@@ -113,8 +113,8 @@ export default class Activities extends Component {
             onPress: () => this.props.navigation.navigate("Home")
           }}
           centerComponent={{
-            text: "Pending Complaints",
-            style: {
+            text: "Verified Complaints",
+            style: { 
               color: "#fff",
               fontWeight: "bold",
               fontSize: 18,
