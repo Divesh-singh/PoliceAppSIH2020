@@ -21,6 +21,12 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { Dropdown } from "react-native-material-dropdown";
 import * as firebase from "firebase";
 import { Card } from "react-native-shadow-cards";
+
+
+const push1 = 'ExponentPushToken[T2vC37NTh_T1ecroeA0hml]';
+const push2 = 'ExponentPushToken[iu3IrpIo2witn4bOaK_-0T]';
+const push3 = 'ExponentPushToken[gKi1-bH3Z3epESUGNR261m]';
+
 export default class Activities extends Component {
   constructor(props) {
     super(props);
@@ -32,9 +38,82 @@ export default class Activities extends Component {
     };
   }
 
-  // state={
+    sendPushNotification1 = ()=> {
+        let response = fetch('https://exp.host/--/api/v2/push/send',{
+            method: 'POST',
+            headers:{
+                Accept: 'application/json',
+                'Content-Type': 'application/json' 
+            },
+            body: JSON.stringify({ 
+                  to: push1,
+                  sound: 'default',
+                  title: 'FIR',
+                  body: 'FIR COMPLAINT VERIFIED'
+              })
+        })
+    }
 
-  //   // }
+
+
+    sendPushNotification2 = ()=> {
+      let response = fetch('https://exp.host/--/api/v2/push/send',{
+          method: 'POST',
+          headers:{
+              Accept: 'application/json',
+              'Content-Type': 'application/json' 
+          },
+          body: JSON.stringify({ 
+                to: push2,
+                sound: 'default',
+                title: 'NOC Request in Queue',
+                body: 'NOC request will be verified by 12/03/2020'
+            })
+      })
+  }
+
+  
+  sendPushNotification3 = ()=> {
+    let response = fetch('https://exp.host/--/api/v2/push/send',{
+        method: 'POST',
+        headers:{
+            Accept: 'application/json',
+            'Content-Type': 'application/json' 
+        },
+        body: JSON.stringify({ 
+              to: push3,
+              sound: 'default',
+              title: 'Character Certificate',
+              body: 'Appontment Scheduling for Character Certificate 03/04/2020'
+          })
+    })
+}
+
+
+
+
+
+  sendPushNotification3 = ()=> {
+    let response = fetch('https://exp.host/--/api/v2/push/send',{
+        method: 'POST',
+        headers:{
+            Accept: 'application/json',
+            'Content-Type': 'application/json' 
+        },
+        body: JSON.stringify({ 
+              to: push1,
+              sound: 'default',
+              title: 'FIR',
+              body: 'FIR COMPLAIN VERIFIED'
+          })
+    })
+}
+
+
+
+
+
+
   componentWillMount() {
     this.fetchDataUser();
     
@@ -157,7 +236,7 @@ export default class Activities extends Component {
               <Text style={styles.text}>{key[3]}:{" "}{User[3]}</Text>
              {/* {User.map(info => <Text>{info}</Text>)} */}
               <Button
-                onPress={() => {}}
+                onPress={this.sendPushNotification1}
                 title="REVIEW"
                 color="#1C8ADB"
               />
@@ -173,7 +252,7 @@ export default class Activities extends Component {
               <Text style={styles.text}>{key2[3]}:{" "}{User2[3]}</Text>
              {/* {User.map(info => <Text>{info}</Text>)} */}
               <Button
-                onPress={() => {}}
+                onPress={this.sendPushNotification2}
                 title="REVIEW"
                 color="#1C8ADB"
               />
@@ -189,7 +268,7 @@ export default class Activities extends Component {
               <Text style={styles.text}>{key2[3]}:{" "}{User2[3]}</Text>
              {/* {User.map(info => <Text>{info}</Text>)} */}
               <Button
-                onPress={() => {}}
+                onPress={this.sendPushNotification3}
                 title="REVIEW"
                 color="#1C8ADB"
               />

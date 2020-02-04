@@ -94,7 +94,7 @@ const AppTabNavigator = createBottomTabNavigator({
   Notification: {
     screen: NotificationScreen,
     navigationOptions: {
-      tabBarIcon: ({ tintColor }) => <Ionicons name="ios-notifications" size={24} color={tintColor} />
+      tabBarIcon: ({ tintColor }) => <Ionicons name="ios-finger-print" size={24} color={tintColor} />
     }
   },
   Map: {

@@ -6,16 +6,67 @@ import {Ionicons} from '@expo/vector-icons';
 import {AntDesign} from '@expo/vector-icons';
 import * as firebase from 'firebase';
 import LogoTitle from './LogoScreen';
+
+
+
+
+//
+// var this.state.language = 1    // 0: Hindi  1:English
+const crimerecH = <Text style={{alignItems:"center",fontSize:20 ,}}> क्राइम रिकॉर्ड की व्यवस्था करें </Text>;
+const crimerecE = <Text style={{alignItems:"center",fontSize:20 ,}}> CRIME RECORD</Text>;
+
+const beatH = <Text style={{alignItems:"center",fontSize:20 ,}}> बीट मैनेजमेंट </Text>;
+const beatE = <Text style={{alignItems:"center",fontSize:20 ,}}> BEAT MANAGEMENT</Text>;
+
+
+const firH = <Text style={{alignItems:"center",fontSize:20 ,}}> प्राथमिकी अनुरोध </Text>;
+const firE = <Text style={{alignItems:"center",fontSize:20 ,}}> REQUESTED FIRs </Text>;
+
+
+const nocH = <Text style={{alignItems:"center",fontSize:20 ,}}> NOC सत्यापन</Text>;
+const nocE = <Text style={{alignItems:"center",fontSize:20 ,}}> NOC VERIFICATIONS </Text>;
+
+
+const statsH = <Text style={{alignItems:"center",fontSize:20 ,}}> आपराधिक सांख्यिकीं </Text>;
+const statsE = <Text style={{alignItems:"center",fontSize:20 ,}}> CRIMINAL STATS </Text>;
+
+const fingerH = <Text style={{alignItems:"center",fontSize:20 ,}}> सस्पेक्ट फ़िंगरप्रिंट को स्कैन करें </Text>;
+const fingerE = <Text style={{alignItems:"center",fontSize:20 ,}}> SCAN THE SUSPECT FINGERPRINT </Text>;
+
+const changeH = <Text style={{alignItems:"center",fontSize:20 ,}}> भाषा बदले </Text>;
+const changeE = <Text style={{alignItems:"center",fontSize:20 ,}}> Change language </Text>;
+
+
+
+
+
+
 export default class HomeScreen extends React.Component{
 
     state ={
         email:"",
         displayname: "",
+        language:1,
     }
     componentDidMount(){
         const {email, displayname} = firebase.auth().currentUser;
         this.setState({email, displayname});
     }
+
+    switch=()=>{
+      if (this.state.language === 0)
+      {
+alert("Language CHANGED to English")
+          this.setState({language:1});
+              return false;                   //HINDI
+      }
+      else if(this.state.language===1){
+        alert("Language CHANGED to Hindi")
+              this.setState({language:0});
+                return false;                   //eNGLISH
+      }
+    }
+
 
     signOutUser = () => {
         firebase.auth().signOut().then(() => {
@@ -82,11 +133,7 @@ export default class HomeScreen extends React.Component{
                     style={styles.img}
                     source={require("../assets/cricon.png")}
                   />
-                  <Text
-                    style={styles.item}
-                  >
-                  CRIME RECORDS
-                  </Text>
+                  {this.state.language === 0 ? crimerecH : crimerecE}
                 </Ripple>
               </View>
               <View style={styles.split}>
@@ -102,7 +149,7 @@ export default class HomeScreen extends React.Component{
                   width: 80}}
                     source={require("../assets/2.png")}
                   />
-                  <Text style={styles.item}>MANAGE BEAT</Text>
+                   {this.state.language === 0 ? beatH : beatE}
                 </Ripple>
               </View>
             </View>
@@ -118,7 +165,7 @@ export default class HomeScreen extends React.Component{
                     style={styles.img}
                     source={require("../assets/3.png")}
                   />
-    <Text style={styles.item}>MANAGE FIR</Text>
+     {this.state.language === 0 ? firH : firE}
                 </Ripple>
               </View>
               <View style={styles.split}>
@@ -132,7 +179,7 @@ export default class HomeScreen extends React.Component{
                     style={styles.img}
                     source={require("../assets/4.png")}
                   />
-                  <Text style={styles.item}>VERIFY NOC</Text>
+                   {this.state.language === 0 ? nocH : nocE}
                 </Ripple>
               </View>
             </View>
@@ -148,7 +195,7 @@ export default class HomeScreen extends React.Component{
                     style={styles.img}
                     source={require("../assets/5.png")}
                   />
-                  <Text style={styles.item}>CRIMINAL STATS</Text>
+                   {this.state.language === 0 ? statsH : statsE}
                 </Ripple>
               </View>
               <View style={styles.split}>
@@ -160,12 +207,27 @@ export default class HomeScreen extends React.Component{
                 >
                   <Image
                     style={styles.img}
-                    source={require("../assets/6.png")}
+                    source={require("../assets/fing.png")}
                   />
-                  <Text style={styles.item}>RECENT ACTIVITIES</Text>
+                   {this.state.language === 0 ? fingerH : fingerE}
                 </Ripple>
               </View>
+              
             </View>
+            <View style={styles.split}>
+                <Ripple
+                  rippleColor="#1C8ADB"
+                  backgroundColor="white"
+                  style={styles.tab}
+                  onPress={()=>{this.switch()}}
+                >
+                  <Image
+                    style={styles.img}
+                    source={require("../assets/ENG.png")}
+                  />
+                   {this.state.language === 0 ? changeH : changeE}
+                </Ripple>
+              </View>
             
           </ScrollView>
         </View>

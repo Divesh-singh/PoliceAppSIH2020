@@ -83,7 +83,7 @@
 
 
 import React, { Component } from 'react';
-import { StyleSheet, Platform, Share, Linking, View, Text } from 'react-native';
+import { StyleSheet, Platform, Share, Linking, View, Text, Image } from 'react-native';
 
 
 
@@ -130,10 +130,6 @@ export default class App extends Component {
           });
     } 
 
-    // const snapchat = Platform.select({
-    //   ios: 'snapchat://add/baconbrix',
-    //   default: 'https://www.acpl.in.net/',
-    // });
 
     return Linking.openURL(snapchat);
   };
@@ -141,18 +137,12 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-         
-        <Text style={styles.text} onPress={this.onShare}>
-          Share
-        </Text>
-        <Text style={styles.text} onPress={this.onLinkToInstagramIOS}>
-          Link to instagram
-        </Text>
+         <Image
+            style={styles.img}
+            source={require("../assets/fing.png")}
+          />
         <Text style={styles.text} onPress={this.onSubToYoutube}>
-          Sub to Expo
-        </Text>
-        <Text style={styles.text} onPress={this.onOpenApp}>
-          Open App
+          Scan the Suspect fingerprint 
         </Text>
       </View>
     );
@@ -163,17 +153,24 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     height: '100%',
-    backgroundColor: '#FF0080',
+    backgroundColor: '#FFFF',
     justifyContent: 'space-around',
     alignItems: 'center',
+
+  },
+  img: {
+    alignItems: "center",
+    height: 150,
+    width: 150,
+
   },
   text: {
-    color: 'white',
+    color: '#FFFF',
     fontWeight: 'bold',
-    fontSize: 36,
+    fontSize: 20,
     paddingHorizontal: 24,
     paddingVertical: 16,
-    backgroundColor: '#e6005c',
+    backgroundColor: 'black',
     borderRadius: 12,
     overflow: 'hidden',
   },
