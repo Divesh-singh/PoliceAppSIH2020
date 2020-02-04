@@ -21,7 +21,9 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { Dropdown } from "react-native-material-dropdown";
 import * as firebase from "firebase";
 import { Card } from "react-native-shadow-cards";
-export default class Activities extends Component {
+
+
+export default class ElderlyManagementView extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -29,6 +31,8 @@ export default class Activities extends Component {
       keys: "",
       data2:'',
       keys2:'',
+      data3:'',
+      keys3:'',
     };
   }
 
@@ -39,12 +43,14 @@ export default class Activities extends Component {
     this.fetchDataUser();
     
     this.fetchDataUser2();
+
+    this.fetchDataUser3();
   }
 
   fetchDataUser = () => {
     firebase
       .database()
-      .ref("Clearance/-M-4eMXxfLOlzMnQhUQn")
+      .ref("ElderlyManagement/-M-0y0l_rtU7gl2l8hwX")
       .on("value", snapshot => {
         data = snapshot.val();
         keys = Object.keys(data);
@@ -58,13 +64,27 @@ export default class Activities extends Component {
   fetchDataUser2 = () => {
     firebase
       .database()
-      .ref("Complaints/-M-4kbwtFHSeEzs64wgw")
+      .ref("ElderlyManagement/-M-DH8x4YAGmHuexLuo8")
       .on("value", snapshot => {
         data = snapshot.val();
         keys = Object.keys(data);
         dat= Object.values(data);
         //  console.log(snapshot);
         this.setState({ keys2: keys, data2: dat });
+      });
+
+    // this.fetchDataEach();
+  };
+  fetchDataUser3 = () => {
+    firebase
+      .database()
+      .ref("ElderlyManagement/-M-DHTLsMxQaQIHegDgL")
+      .on("value", snapshot => {
+        data = snapshot.val();
+        keys = Object.keys(data);
+        dat= Object.values(data);
+        //  console.log(snapshot);
+        this.setState({ keys3: keys, data3: dat });
       });
 
     // this.fetchDataEach();
@@ -78,9 +98,8 @@ export default class Activities extends Component {
   // };
   render() {
     // delete this.state.data[0];
-    console.log(this.state.keys);
     // // var dat=this.state.data;
-    // console.log(this.state.data);
+    console.log(this.state.keys3);
     // const tmp=this.state.keys.map((dat)=>{
     //     return (
     //         <FlatList data={this.state.data}
@@ -100,6 +119,9 @@ export default class Activities extends Component {
     
     var User2=this.state.data2;
     var key2=this.state.keys2;
+
+    var User3=this.state.data3;
+    var key3=this.state.keys3;
     // console.log(User[0]);
     return (
       <ImageBackground
@@ -113,8 +135,8 @@ export default class Activities extends Component {
             onPress: () => this.props.navigation.navigate("Home")
           }}
           centerComponent={{
-            text: "Verified Complaints",
-            style: { 
+            text: "Pending Complaints",
+            style: {
               color: "#fff",
               fontWeight: "bold",
               fontSize: 18,
@@ -127,7 +149,7 @@ export default class Activities extends Component {
             onPress: () =>
               Alert.alert(
                 "INFO",
-                "Here you can easily see your past form entries and activities.\n"
+                "Here You can see the records of Elderly Management System.\n"
               )
           }}
           backgroundColor="#1C8ADB"
@@ -147,50 +169,45 @@ export default class Activities extends Component {
         <View style={styles.container}>
           <ScrollView>
             <Card style={{ padding: 10, margin: 10 }}>
-            <Text style={{fontSize: 20}}>Type:PCC</Text>
-              <Text style={styles.text}>{key[0]}:{" "}{User[0]}</Text>
-              <Text style={styles.text}>{key[6]}:{" "}{User[6]}</Text>
               <Text style={styles.text}>{key[4]}:{" "}{User[4]}</Text>
-              <Text style={styles.text}>{key[10]}:{" "}{User[10]}</Text>
-              <Text style={styles.text}>{key[7]}:{" "}{User[7]}</Text>
-              <Text style={styles.text}>{key[8]}:{" "}{User[8]}</Text>
+              <Text style={styles.text}>{key[2]}:{" "}{User[2]}</Text>
+              <Text style={styles.text}>{key[1]}:{" "}{User[1]}</Text>
+              <Text style={styles.text}>{key[5]}:{" "}{User[5]}</Text>
+              <Text style={styles.text}>{key[6]}:{" "}{User[6]}</Text>
+              <Text style={styles.text}>{key[0]}:{" "}{User[0]}</Text>
               <Text style={styles.text}>{key[3]}:{" "}{User[3]}</Text>
              {/* {User.map(info => <Text>{info}</Text>)} */}
               <Button
                 onPress={() => {}}
-                title="REVIEW"
+                title="LOCATE"
                 color="#1C8ADB"
               />
             </Card>
             <Card style={{ padding: 10, margin: 10 }}>
-            <Text style={{fontSize: 20}}>Type:Complaints</Text>
+            <Text style={styles.text}>{key2[4]}:{" "}{User2[4]}</Text>
+              <Text style={styles.text}>{key2[2]}:{" "}{User2[2]}</Text>
+              <Text style={styles.text}>{key2[1]}:{" "}{User2[1]}</Text>
+              <Text style={styles.text}>{key2[5]}:{" "}{User2[5]}</Text>
+              <Text style={styles.text}>{key2[6]}:{" "}{User2[6]}</Text>
               <Text style={styles.text}>{key2[0]}:{" "}{User2[0]}</Text>
-              <Text style={styles.text}>{key2[6]}:{" "}{User2[6]}</Text>
-              <Text style={styles.text}>{key2[4]}:{" "}{User2[4]}</Text>
-              <Text style={styles.text}>{key2[10]}:{" "}{User2[10]}</Text>
-              <Text style={styles.text}>{key2[7]}:{" "}{User2[7]}</Text>
-              <Text style={styles.text}>{key2[8]}:{" "}{User2[8]}</Text>
-              <Text style={styles.text}>{key2[3]}:{" "}{User2[3]}</Text>
              {/* {User.map(info => <Text>{info}</Text>)} */}
               <Button
                 onPress={() => {}}
-                title="REVIEW"
+                title="LOCATE"
                 color="#1C8ADB"
               />
             </Card>
             <Card style={{ padding: 10, margin: 10 }}>
-            <Text style={{fontSize: 20}}>Type:Complaints</Text>
-            <Text style={styles.text}>{key2[0]}:{" "}{User2[0]}</Text>
-              <Text style={styles.text}>{key2[6]}:{" "}{User2[6]}</Text>
-              <Text style={styles.text}>{key2[4]}:{" "}{User2[4]}</Text>
-              <Text style={styles.text}>{key2[10]}:{" "}{User2[10]}</Text>
-              <Text style={styles.text}>{key2[7]}:{" "}{User2[7]}</Text>
-              <Text style={styles.text}>{key2[8]}:{" "}{User2[8]}</Text>
-              <Text style={styles.text}>{key2[3]}:{" "}{User2[3]}</Text>
+              <Text style={styles.text}>{key3[4]}:{" "}{User3[4]}</Text>
+              <Text style={styles.text}>{key3[2]}:{" "}{User3[2]}</Text>
+              <Text style={styles.text}>{key3[1]}:{" "}{User3[1]}</Text>
+              <Text style={styles.text}>{key3[5]}:{" "}{User3[5]}</Text>
+              <Text style={styles.text}>{key3[6]}:{" "}{User3[6]}</Text>
+              <Text style={styles.text}>{key3[0]}:{" "}{User3[0]}</Text>
              {/* {User.map(info => <Text>{info}</Text>)} */}
               <Button
                 onPress={() => {}}
-                title="REVIEW"
+                title="LOCATE"
                 color="#1C8ADB"
               />
             </Card>

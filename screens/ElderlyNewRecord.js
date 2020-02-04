@@ -50,7 +50,7 @@ export default class CrimeRecordAdd extends Component {
         var ref = firebase
           .storage()
           .ref()
-          .child("CrimeRecord/" + imageName);
+          .child("ElderlyManagement/" + imageName);
           photo=blob.data.name
         return ref.put(blob);
         

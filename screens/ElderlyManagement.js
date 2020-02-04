@@ -61,7 +61,9 @@ export default class ElderlyManagement extends Component {
                 <Text style={styles.item}>Add Record</Text>
               </View>
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity
+            onPress={() => this.props.navigation.navigate("ElderV")}
+            >
               <View style={styles.tab}>
                 <Text style={styles.item}>View Record</Text>
               </View>
