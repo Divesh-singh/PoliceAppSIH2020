@@ -6,11 +6,24 @@
     "slug": "sih_police-app",
     "privacy": "public",
     "sdkVersion": "36.0.0",
+    "scheme": "myapp",
     "ios":{
       "bundleIdentifier": "com.sih.sample"
     },
     "android": {
-      "package": "com.sih.sample"
+      "package": "com.sih.sample",
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "data": [{
+            "scheme": "your-scheme"
+          }],
+          "category": [
+            "BROWSABLE",
+            "DEFAULT"
+          ]
+        }
+      ]
     },
     "platforms": [
       "ios",

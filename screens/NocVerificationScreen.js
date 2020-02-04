@@ -21,23 +21,21 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { Dropdown } from "react-native-material-dropdown";
 import * as firebase from "firebase";
 import { Card } from "react-native-shadow-cards";
+
 export default class Activities extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: "",
       keys: "",
-      data2:'',
-      keys2:'',
+      data2: "",
+      keys2: ""
     };
   }
 
-  // state={
-
-  //   // }
   componentWillMount() {
     this.fetchDataUser();
-    
+
     this.fetchDataUser2();
   }
 
@@ -48,12 +46,10 @@ export default class Activities extends Component {
       .on("value", snapshot => {
         data = snapshot.val();
         keys = Object.keys(data);
-        dat= Object.values(data);
+        dat = Object.values(data);
         //  console.log(snapshot);
         this.setState({ keys: keys, data: dat });
       });
-
-    // this.fetchDataEach();
   };
   fetchDataUser2 = () => {
     firebase
@@ -62,45 +58,20 @@ export default class Activities extends Component {
       .on("value", snapshot => {
         data = snapshot.val();
         keys = Object.keys(data);
-        dat= Object.values(data);
+        dat = Object.values(data);
         //  console.log(snapshot);
         this.setState({ keys2: keys, data2: dat });
       });
-
-    // this.fetchDataEach();
   };
-  //   fetchDataEach = () => {
-  //     firebase.database().ref('Clearance/'+this.state.keys[0]).on('value', (snapshot)=> {
-  //          data = Object.values(snapshot.val());
-  //         //  console.log(snapshot);
-  //       this.setState({data:data});
-  //     })
-  // };
+
   render() {
-    // delete this.state.data[0];
     console.log(this.state.keys);
-    // // var dat=this.state.data;
-    // console.log(this.state.data);
-    // const tmp=this.state.keys.map((dat)=>{
-    //     return (
-    //         <FlatList data={this.state.data}
-    //       renderItem={
-    //         ({item}) =>
-    //         <View >
-    //           <Text>
-    //             {item.dat}
-    //           </Text>
-    //         </View>
-    //         }
-    //       />
-    //     )
-    //   });
-    var User=this.state.data;
-    var key=this.state.keys;
-    
-    var User2=this.state.data2;
-    var key2=this.state.keys2;
-    // console.log(User[0]);
+
+    var User = this.state.data;
+    var key = this.state.keys;
+
+    var User2 = this.state.data2;
+    var key2 = this.state.keys2;
     return (
       <ImageBackground
         source={require("../assets/Back.jpg")}
@@ -132,68 +103,83 @@ export default class Activities extends Component {
           }}
           backgroundColor="#1C8ADB"
         />
-        {/* {tmp} */}
-        {/*
-        <FlatList data={this.state.data.keys[0]}
-          renderItem={
-            ({item}) => 
-            <View >
-              <Text>
-                {item.Name}
-              </Text>
-            </View>
-            }
-          /> */}
+
         <View style={styles.container}>
           <ScrollView>
             <Card style={{ padding: 10, margin: 10 }}>
-            
-              <Text style={styles.text}>{key[0]}:{" "}{User[0]}</Text>
-              <Text style={styles.text}>{key[6]}:{" "}{User[6]}</Text>
-              <Text style={styles.text}>{key[4]}:{" "}{User[4]}</Text>
-              <Text style={styles.text}>{key[10]}:{" "}{User[10]}</Text>
-              <Text style={styles.text}>{key[7]}:{" "}{User[7]}</Text>
-              <Text style={styles.text}>{key[8]}:{" "}{User[8]}</Text>
-              <Text style={styles.text}>{key[3]}:{" "}{User[3]}</Text>
-              
-             {/* {User.map(info => <Text>{info}</Text>)} */}
-              <Button
-                onPress={() => {}}
-                title="REVIEW"
-                color="#1C8ADB"
-              />
+              <Text style={styles.text}>
+                {key[0]}: {User[0]}
+              </Text>
+              <Text style={styles.text}>
+                {key[6]}: {User[6]}
+              </Text>
+              <Text style={styles.text}>
+                {key[4]}: {User[4]}
+              </Text>
+              <Text style={styles.text}>
+                {key[10]}: {User[10]}
+              </Text>
+              <Text style={styles.text}>
+                {key[7]}: {User[7]}
+              </Text>
+              <Text style={styles.text}>
+                {key[8]}: {User[8]}
+              </Text>
+              <Text style={styles.text}>
+                {key[3]}: {User[3]}
+              </Text>
+
+              <Button onPress={() => {}} title="REVIEW" color="#1C8ADB" />
             </Card>
             <Card style={{ padding: 10, margin: 10 }}>
-            
-              <Text style={styles.text}>{key2[0]}:{" "}{User2[0]}</Text>
-              <Text style={styles.text}>{key2[6]}:{" "}{User2[6]}</Text>
-              <Text style={styles.text}>{key2[4]}:{" "}{User2[4]}</Text>
-              <Text style={styles.text}>{key2[10]}:{" "}{User2[10]}</Text>
-              <Text style={styles.text}>{key2[7]}:{" "}{User2[7]}</Text>
-              <Text style={styles.text}>{key2[8]}:{" "}{User2[8]}</Text>
-              <Text style={styles.text}>{key2[3]}:{" "}{User2[3]}</Text>
-             {/* {User.map(info => <Text>{info}</Text>)} */}
-              <Button
-                onPress={() => {}}
-                title="REVIEW"
-                color="#1C8ADB"
-              />
+              <Text style={styles.text}>
+                {key2[0]}: {User2[0]}
+              </Text>
+              <Text style={styles.text}>
+                {key2[6]}: {User2[6]}
+              </Text>
+              <Text style={styles.text}>
+                {key2[4]}: {User2[4]}
+              </Text>
+              <Text style={styles.text}>
+                {key2[10]}: {User2[10]}
+              </Text>
+              <Text style={styles.text}>
+                {key2[7]}: {User2[7]}
+              </Text>
+              <Text style={styles.text}>
+                {key2[8]}: {User2[8]}
+              </Text>
+              <Text style={styles.text}>
+                {key2[3]}: {User2[3]}
+              </Text>
+              {/* {User.map(info => <Text>{info}</Text>)} */}
+              <Button onPress={() => {}} title="REVIEW" color="#1C8ADB" />
             </Card>
             <Card style={{ padding: 10, margin: 10 }}>
-           
-            <Text style={styles.text}>{key2[0]}:{" "}{User2[0]}</Text>
-              <Text style={styles.text}>{key2[6]}:{" "}{User2[6]}</Text>
-              <Text style={styles.text}>{key2[4]}:{" "}{User2[4]}</Text>
-              <Text style={styles.text}>{key2[10]}:{" "}{User2[10]}</Text>
-              <Text style={styles.text}>{key2[7]}:{" "}{User2[7]}</Text>
-              <Text style={styles.text}>{key2[8]}:{" "}{User2[8]}</Text>
-              <Text style={styles.text}>{key2[3]}:{" "}{User2[3]}</Text>
-             {/* {User.map(info => <Text>{info}</Text>)} */}
-              <Button
-                onPress={() => {}}
-                title="REVIEW"
-                color="#1C8ADB"
-              />
+              <Text style={styles.text}>
+                {key2[0]}: {User2[0]}
+              </Text>
+              <Text style={styles.text}>
+                {key2[6]}: {User2[6]}
+              </Text>
+              <Text style={styles.text}>
+                {key2[4]}: {User2[4]}
+              </Text>
+              <Text style={styles.text}>
+                {key2[10]}: {User2[10]}
+              </Text>
+              <Text style={styles.text}>
+                {key2[7]}: {User2[7]}
+              </Text>
+              <Text style={styles.text}>
+                {key2[8]}: {User2[8]}
+              </Text>
+              <Text style={styles.text}>
+                {key2[3]}: {User2[3]}
+              </Text>
+              {/* {User.map(info => <Text>{info}</Text>)} */}
+              <Button onPress={() => {}} title="REVIEW" color="#1C8ADB" />
             </Card>
           </ScrollView>
         </View>
