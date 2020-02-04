@@ -51,15 +51,7 @@ export default class CrimeRecords extends React.Component{
                       <Text style={styles.item}>View Record</Text>
                       <Image  style={styles.img}  source={require('../assets//fetchdb.png')}/>
                     </View>
-                    </TouchableOpacity>  
-                    <TouchableOpacity>
-                    <View  style={styles.tab}>
-                      <Text style={styles.item}>Update Record</Text>
-                      <Image style={styles.img} source={require('../assets//updatedb.png')}/>
-                    </View>
-                    </TouchableOpacity>  
-                    
-                     
+                    </TouchableOpacity>   
                 </ScrollView>
               </View>
             </ImageBackground>

@@ -132,10 +132,10 @@ export default class ElderlyManagementView extends Component {
           leftComponent={{
             icon: "arrow-back",
             color: "#fff",
-            onPress: () => this.props.navigation.navigate("Home")
+            onPress: () => this.props.navigation.navigate("Elder")
           }}
           centerComponent={{
-            text: "Pending Complaints",
+            text: "Elderly Records",
             style: {
               color: "#fff",
               fontWeight: "bold",
