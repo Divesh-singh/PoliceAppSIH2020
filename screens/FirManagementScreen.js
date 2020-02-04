@@ -25,7 +25,7 @@ import { Card } from "react-native-shadow-cards";
 
 const push1 = 'ExponentPushToken[T2vC37NTh_T1ecroeA0hml]';
 const push2 = 'ExponentPushToken[iu3IrpIo2witn4bOaK_-0T]';
-const push3 = 'ExponentPushToken[gKi1-bH3Z3epESUGNR261m]';
+const push3 = 'ExponentPushToken[td1o7RLjC0PNGfDnaRxu-J]';
 
 export default class Activities extends Component {
   constructor(props) {
@@ -84,7 +84,7 @@ export default class Activities extends Component {
               to: push3,
               sound: 'default',
               title: 'Character Certificate',
-              body: 'Appontment Scheduling for Character Certificate 03/04/2020'
+              body: 'Appontment Scheduling for Character Certificate '
           })
     })
 }
