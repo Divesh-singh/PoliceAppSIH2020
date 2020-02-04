@@ -23,6 +23,7 @@ import BeatManagementScreen from './screens/BeatManagementScreen';
 import ElderlyManagement from './screens/ElderlyManagement';
 import ElderlyNewRecord from './screens/ElderlyNewRecord';
 import ElderlyManagementView from './screens/ElderlyManagementView';
+import EvidenceCollection from './screens/EvidenceCollection';
 import ShowCrimeRecords from './screens/ShowCrimeRecords';
 
 
@@ -129,7 +130,8 @@ const AppStack = createStackNavigator({
   HeatMap: HeatMapScreen,
   Elder: ElderlyManagement,
   ElderN: ElderlyNewRecord,
-  ElderV: ElderlyManagementView
+  ElderV: ElderlyManagementView,
+  Evid:EvidenceCollection
 },
   {
     headerMode: "none"
