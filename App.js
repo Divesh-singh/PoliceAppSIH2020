@@ -22,6 +22,7 @@ import CrimeRecordAdd from './screens/CrimeRecordAdd';
 import BeatManagementScreen from './screens/BeatManagementScreen';
 import ElderlyManagement from './screens/ElderlyManagement';
 import ElderlyNewRecord from './screens/ElderlyNewRecord';
+import EvidenceCollection from './screens/EvidenceCollection';
 import ShowCrimeRecords from './screens/ShowCrimeRecords';
 
 
@@ -127,7 +128,8 @@ const AppStack = createStackNavigator({
   RecentActivity: NotificationScreen,
   HeatMap: HeatMapScreen,
   Elder: ElderlyManagement,
-  ElderN: ElderlyNewRecord
+  ElderN: ElderlyNewRecord,
+  Evid:EvidenceCollection
 },
   {
     headerMode: "none"

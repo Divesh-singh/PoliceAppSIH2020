@@ -43,7 +43,7 @@ export default class CrimeRecords extends React.Component{
                       <Image style={styles.img}  source={require('../assets//adddb.png')}/>
                     </View>
                     </TouchableOpacity>  
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={()=>this.props.navigation.navigate("Evid")}>
                     <View  style={styles.tab}>
                       <Text style={styles.item}>Evidence Collection</Text>
                       <Image  style={styles.img}  source={require('../assets//fetchdb.png')}/>
