@@ -62,7 +62,7 @@ export default class ElderlyManagement extends Component {
               </View>
             </TouchableOpacity>
             <TouchableOpacity
-            onPress={() => this.props.navigation.navigate("ElderV")}
+            onPress={() => this.props.navigation.navigate("ElderN")}
             >
               <View style={styles.tab}>
                 <Text style={styles.item}>View Record</Text>

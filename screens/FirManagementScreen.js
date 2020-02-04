@@ -147,7 +147,7 @@ export default class Activities extends Component {
         <View style={styles.container}>
           <ScrollView>
             <Card style={{ padding: 10, margin: 10 }}>
-            <Text style={{fontSize: 20}}>Type:PCC</Text>
+            <Text style={{fontSize: 20}}>Type:Lost E-Fir</Text>
               <Text style={styles.text}>{key[0]}:{" "}{User[0]}</Text>
               <Text style={styles.text}>{key[6]}:{" "}{User[6]}</Text>
               <Text style={styles.text}>{key[4]}:{" "}{User[4]}</Text>

@@ -1,5 +1,7 @@
 import React from 'react';
-import {View, Text,Dimensions, ScrollView} from 'react-native';
+import {View, Text,Dimensions, ScrollView,ImageBackground} from 'react-native';
+
+import { Header } from "react-native-elements";
 import {
     LineChart,
     BarChart,
@@ -8,15 +10,46 @@ import {
     ContributionGraph,
     StackedBarChart
   } from "react-native-chart-kit";
+import { styles } from 'react-native-material-ripple/styles';
 
 
   export default class CrimeStatsScreen extends React.Component{
       render(){
-          return(
-              <ScrollView>
+          return( 
+            <ImageBackground
+            source={require("../assets/white.jpg")}
+            style={{ width: "100%", height: "100%" }}
+          >
+           <Header
+          leftComponent={{
+            icon: "arrow-back",
+            color: "#fff",
+            onPress: () => this.props.navigation.navigate("Home")
+          }}
+          centerComponent={{
+            text: "CRIME STATS",
+            style: {
+              color: "#fff",
+              fontWeight: "bold",
+              fontSize: 18,
+              letterSpacing: 1
+            }
+          }}
+          rightComponent={{
+            icon: "help",
+            color: "#fff",
+            onPress: () =>
+              Alert.alert(
+                "INFO",
+                "Here you can easily see and graphically analyze the stats of crime in india.\n"
+              )
+          }}
+          backgroundColor="#1C8ADB"
+        />
+              <ScrollView style={{margin:10}}>
                        
                          <View>
-                             <Text style={{marginTop: 30, fontSize:20, marginLeft: 12}}>Crime Rate Commited against SC</Text>
+                             <Text style={{marginTop: 30, fontSize:20, marginLeft: 12}}>Crime commited against SC</Text>
                               <ScrollView  horizontal= {true}>
                          
                                   <View>
@@ -67,7 +100,7 @@ import {
 
                                   <View>
 
-                                  <Text style={{marginTop: 30, fontSize:20, marginLeft: 12}}>Crime Rate Against Child</Text>
+                                  <Text style={{marginTop: 30, fontSize:20, marginLeft: 12}}>Crime rate against Child</Text>
                                       <ScrollView   horizontal={true}>
                                           <View>
                                            
@@ -118,7 +151,7 @@ import {
                                       
                                   <View>
 
-                                  <Text style={{marginTop: 30, fontSize:20, marginLeft: 12}}>Crime Rate Against Child</Text>
+                                  <Text style={{marginTop: 30, fontSize:20, marginLeft: 12}}>Crime rate against Child</Text>
                                       <ScrollView   horizontal={true}>
                                           <View>
                                            
@@ -175,6 +208,7 @@ import {
                         </View>
 
           </ScrollView>
+          </ImageBackground>
           )
       }
   }
