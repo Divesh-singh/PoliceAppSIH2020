@@ -96,7 +96,7 @@ const fingerH = <Text style={{
       paddingTop: 10,
       fontWeight: "500",
       textAlign: "center"
-    }}> सस्पेक्ट फ़िंगरप्रिंट को स्कैन करें </Text>;
+    }}> स्कैन फ़िंगरप्रिंट </Text>;
 const fingerE = <Text style={{
       alignItems: "center",
       fontSize: 20,

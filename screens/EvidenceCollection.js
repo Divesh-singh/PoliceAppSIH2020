@@ -101,7 +101,7 @@ export default class EvidenceCollection extends Component {
 
     return (
       <ImageBackground
-        source={require("../assets/Back.jpg")}
+        source={require("../assets/background.jpg")}
         style={{ width: "100%", height: "100%" }}
       >
         <Header

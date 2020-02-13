@@ -4,8 +4,8 @@
 
 
 import React, { Component } from 'react';
-import { StyleSheet, Platform, Share, Linking, View, Text, Image } from 'react-native';
-
+import { StyleSheet, Platform, Share, Linking, View, Text, Image ,ImageBackground} from 'react-native';
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 
 export default class App extends Component {
@@ -57,15 +57,30 @@ export default class App extends Component {
 
   render() {
     return (
+      
+      <ImageBackground
+        source={require("../assets/background.jpg")}
+        style={{ width: "100%", height: "100%" }}
+      >
       <View style={styles.container}>
          <Image
             style={styles.img}
             source={require("../assets/fing.png")}
           />
-        <Text style={styles.text} onPress={this.onSubToYoutube}>
-          Scan the Suspect fingerprint 
-        </Text>
+          <TouchableOpacity
+                style={styles.button}
+                title="Submit Form"
+                value="Submit"
+                onPress={this.onSubToYoutube}
+              >
+                <Text
+                  style={{ color: "#FFF", fontWeight: "400", fontSize: 22 }}
+                >
+                  SCAN FINGERPRINT
+                </Text>
+              </TouchableOpacity>
       </View>
+      </ImageBackground>
     );
   }
 }
@@ -74,7 +89,6 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     height: '100%',
-    backgroundColor: '#FFFF',
     justifyContent: 'space-around',
     alignItems: 'center',
 
@@ -95,4 +109,13 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     overflow: 'hidden',
   },
+  button: {
+    backgroundColor: "#1C8ADB",
+    borderRadius: 40,
+    height: 50,
+    marginHorizontal: "10%",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingHorizontal:30
+  }
 });

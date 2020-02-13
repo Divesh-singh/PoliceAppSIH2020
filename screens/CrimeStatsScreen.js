@@ -17,7 +17,7 @@ import { styles } from 'react-native-material-ripple/styles';
       render(){
           return( 
             <ImageBackground
-            source={require("../assets/white.jpg")}
+            source={require("../assets/background.jpg")}
             style={{ width: "100%", height: "100%" }}
           >
            <Header
