@@ -12,29 +12,113 @@ import LogoTitle from './LogoScreen';
 
 //
 // var this.state.language = 1    // 0: Hindi  1:English
-const crimerecH = <Text style={{alignItems:"center",fontSize:20 ,}}> क्राइम रिकॉर्ड की व्यवस्था करें </Text>;
-const crimerecE = <Text style={{alignItems:"center",fontSize:20 ,}}> CRIME RECORD</Text>;
+const crimerecH = <Text style={{
+      alignItems: "center",
+      fontSize: 20,
+      paddingTop: 10,
+      fontWeight: "500",
+      textAlign: "center"
+    }}> क्राइम रिकॉर्ड की व्यवस्था करें </Text>;
+const crimerecE = <Text style={{
+      alignItems: "center",
+      fontSize: 20,
+      paddingTop: 10,
+      fontWeight: "500",
+      textAlign: "center"
+    }}> CRIME RECORD</Text>;
 
-const beatH = <Text style={{alignItems:"center",fontSize:20 ,}}> बीट मैनेजमेंट </Text>;
-const beatE = <Text style={{alignItems:"center",fontSize:20 ,}}> BEAT MANAGEMENT</Text>;
+const beatH = <Text style={{
+      alignItems: "center",
+      fontSize: 20,
+      paddingTop: 10,
+      fontWeight: "500",
+      textAlign: "center"
+    }}> बीट मैनेजमेंट </Text>;
+const beatE = <Text style={{
+      alignItems: "center",
+      fontSize: 20,
+      paddingTop: 10,
+      fontWeight: "500",
+      textAlign: "center"
+    }}> BEAT MANAGE</Text>;
 
 
-const firH = <Text style={{alignItems:"center",fontSize:20 ,}}> प्राथमिकी अनुरोध </Text>;
-const firE = <Text style={{alignItems:"center",fontSize:20 ,}}> REQUESTED FIRs </Text>;
+const firH = <Text style={{
+      alignItems: "center",
+      fontSize: 20,
+      paddingTop: 10,
+      fontWeight: "500",
+      textAlign: "center"
+    }}> प्राथमिकी अनुरोध </Text>;
+const firE = <Text style={{
+      alignItems: "center",
+      fontSize: 20,
+      paddingTop: 10,
+      fontWeight: "500",
+      textAlign: "center"
+    }}> REQUESTED FIRs </Text>;
 
 
-const nocH = <Text style={{alignItems:"center",fontSize:20 ,}}> NOC सत्यापन</Text>;
-const nocE = <Text style={{alignItems:"center",fontSize:20 ,}}> NOC VERIFICATIONS </Text>;
+const nocH = <Text style={{
+      alignItems: "center",
+      fontSize: 20,
+      paddingTop: 10,
+      fontWeight: "500",
+      textAlign: "center"
+    }}> NOC सत्यापन</Text>;
+const nocE = <Text style={{
+      alignItems: "center",
+      fontSize: 20,
+      paddingTop: 10,
+      fontWeight: "500",
+      textAlign: "center"
+    }}> VERIFY NOC </Text>;
 
 
-const statsH = <Text style={{alignItems:"center",fontSize:20 ,}}> आपराधिक सांख्यिकीं </Text>;
-const statsE = <Text style={{alignItems:"center",fontSize:20 ,}}> CRIMINAL STATS </Text>;
+const statsH = <Text style={{
+      alignItems: "center",
+      fontSize: 20,
+      paddingTop: 10,
+      fontWeight: "500",
+      textAlign: "center"
+    }}> आपराधिक सांख्यिकीं </Text>;
+const statsE = <Text style={{
+      alignItems: "center",
+      fontSize: 20,
+      paddingTop: 10,
+      fontWeight: "500",
+      textAlign: "center"
+    }}> CRIMINAL STATS </Text>;
 
-const fingerH = <Text style={{alignItems:"center",fontSize:20 ,}}> सस्पेक्ट फ़िंगरप्रिंट को स्कैन करें </Text>;
-const fingerE = <Text style={{alignItems:"center",fontSize:20 ,}}> SCAN THE SUSPECT FINGERPRINT </Text>;
+const fingerH = <Text style={{
+      alignItems: "center",
+      fontSize: 20,
+      paddingTop: 10,
+      fontWeight: "500",
+      textAlign: "center"
+    }}> स्कैन फ़िंगरप्रिंट </Text>;
+const fingerE = <Text style={{
+      alignItems: "center",
+      fontSize: 20,
+      paddingTop: 10,
+      fontWeight: "500",
+      textAlign: "center"
+    }}> SCAN FINGERPRINT </Text>;
 
-const changeH = <Text style={{alignItems:"center",fontSize:20 ,}}> भाषा बदले </Text>;
-const changeE = <Text style={{alignItems:"center",fontSize:20 ,}}> Change language </Text>;
+const changeH = <Text style={{
+      alignItems: "center",
+      fontSize: 20,
+      paddingTop: 10,
+      fontWeight: "500",
+      textAlign: "center"
+    }}> भाषा बदले </Text>;
+const changeE = <Text style={{
+      alignItems: "center",
+      fontSize: 20,
+      paddingTop: 10,
+      fontWeight: "500",
+      textAlign: "center"
+    }}> Change language </Text>;
 
 
 

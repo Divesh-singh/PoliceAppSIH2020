@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text,Dimensions, ScrollView,ImageBackground} from 'react-native';
+import {View, Text,Dimensions, ScrollView,ImageBackground,Alert} from 'react-native';
 
 import { Header } from "react-native-elements";
 import {
@@ -17,7 +17,7 @@ import { styles } from 'react-native-material-ripple/styles';
       render(){
           return( 
             <ImageBackground
-            source={require("../assets/white.jpg")}
+            source={require("../assets/background.jpg")}
             style={{ width: "100%", height: "100%" }}
           >
            <Header

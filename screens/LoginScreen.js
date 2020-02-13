@@ -1,160 +1,153 @@
-import React from 'react';
-import {View,Text,StyleSheet,Image,StatusBar,KeyboardAvoidingView,LayoutAnimation} from 'react-native';
-import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
-import * as firebase from 'firebase';
+import React from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  StatusBar,
+  KeyboardAvoidingView,
+  LayoutAnimation,
+  ImageBackground
+} from "react-native";
+import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
+import * as firebase from "firebase";
 
+export default class LoginScreen extends React.Component {
+  static navigationOptions = {
+    header: null
+  };
 
-export default class LoginScreen extends React.Component{
+  state = {
+    email: "",
+    password: "",
+    errorMessage: null
+  };
 
-    static navigationOptions = {
-            header: null,
-          };
+  handleLogin = () => {
+    const { email, password } = this.state;
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .catch(error => this.setState({ errorMessage: error.message }));
+  };
 
+  render() {
+    LayoutAnimation.easeInEaseOut();
+    return (
+      <ImageBackground
+        source={require("../assets/background.jpg")}
+        style={{ width: "100%", height: "100%" }}
+      >
+        <KeyboardAvoidingView
+          style={styles.container}
+          behavior="padding"
+          enabled
+        >
+          <Image
+            style={{ width: 115, height: 180 }}
+            source={require("../assets/logopolice.png")}
+          />
+          <Text style={styles.greeting}>Police Login</Text>
+          <View style={styles.errorBox}>
+            {this.state.errorMessage && (
+              <Text style={styles.error}> {this.state.errorMessage} </Text>
+            )}
+          </View>
 
-    state= {
-        email: "",
-        password: "",
-        errorMessage: null
-    };
+          <View style={styles.form}>
+            <View>
+              <TextInput
+                placeholder="Email Address"
+                autoCompleteType="email"
+                placeholderTextColor="#000"
+                style={styles.input}
+                autoCapitalize="none"
+                onChangeText={email => this.setState({ email })}
+                value={this.state.email}
+              ></TextInput>
+            </View>
 
-    handleLogin = () => {
-        const {email, password} = this.state
-        firebase.auth().signInWithEmailAndPassword(email,password).catch(error => this.setState({errorMessage: error.message}))
-    }
+            <View style={{ marginTop: 32 }}>
+              <TextInput
+                placeholder="Password"
+                autoCompleteType="password"
+                placeholderTextColor="#000"
+                style={styles.input}
+                autoCapitalize="none"
+                secureTextEntry
+                onChangeText={password => this.setState({ password })}
+                value={this.state.password}
+              ></TextInput>
+            </View>
 
+            <TouchableOpacity style={styles.button} onPress={this.handleLogin}>
+              <Text style={{ color: "#FFF", fontWeight: "500" }}>Sign In</Text>
+            </TouchableOpacity>
 
-
-
-    render() {
-        LayoutAnimation.easeInEaseOut();
-        return(
-            <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
-                <View style={styles.container}>
-                    <StatusBar barStyle="light-content"></StatusBar>
-                    <View style={styles.logoBox}>
-                        <Image
-                        style={styles.logo}
-                        source={require('../assets/logopolice.png')}
-                        />
-                        <Text style={styles.head}>{`Police Officer Login`}</Text>
-                    </View>
-                    <View style={styles.errorBox}>
-                    {this.state.errorMessage && <Text style={styles.error}> {this.state.errorMessage} </Text>}
-                    </View>
-
-                    <View style={styles.form}>
-                        <View >
-                            <TextInput 
-                            placeholder='Email'
-                            style={styles.input}
-                            autoCapitalize="none" 
-                            onChangeText={email => this.setState({email})}
-                            value={this.state.email}></TextInput>
-                        </View>
-                        <View >
-                            <TextInput 
-                            placeholder='Password'
-                            style={styles.input} 
-                            autoCapitalize="none" 
-                            secureTextEntry
-                            onChangeText={password => this.setState({password})}
-                            value={this.state.password}
-                            >
-                            </TextInput>
-                        </View>
-
-                        <TouchableOpacity 
-                        style={styles.button}
-                        onPress={this.handleLogin}
-                        >
-                        <Text style={{color:"#FFF", fontWeight:"500"}}>Sign In</Text>
-                        </TouchableOpacity>
-
-                        <TouchableOpacity 
-                        style={{alignSelf: "center", marginTop:32}}
-                        onPress={() => this.props.navigation.navigate("Register")}
-                        >
-                            <Text style={{color: "#414959", fontSize: 15 }}>
-                                Do not have an account? <Text style={styles.signup}>Sign Up</Text>
-                                </Text>
-                        </TouchableOpacity>
-
-                    </View>
-                
-                </View>
-            </KeyboardAvoidingView>
-        )
-    }
+            <TouchableOpacity
+              rounded
+              style={{ alignSelf: "center", marginTop: 32 }}
+              onPress={() => this.props.navigation.navigate("Register")}
+            >
+              <Text style={{ color: "#414959", fontSize: 15 }}>
+                New to NCRB App?<Text style={styles.signup}> Sign Up</Text>
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </KeyboardAvoidingView>
+      </ImageBackground>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        translateY:50
-    },
-    head: {
-        marginTop:20,
-        fontSize:25,
-        fontWeight:"600",
-        textAlign: "center"
-    },
-        logo:{
-        width:100,
-        height:150,
-        alignItems:"center"
-        },
-
-    logoBox:{
-        translateY:-70,
-        alignItems:"center"
-        },
-    
-    form:{
-        translateY:-60,
-        marginBottom:60,
-        marginHorizontal:30,
-    },
-    inputTitle:{
-        marginBottom:10,
-        color:"#8A8F9E",
-        fontSize: 20,
-        textTransform: "uppercase"
-    },
-    input: {
-        borderBottomColor:"#8A8F9E",
-        borderBottomWidth: 2,
-        height:40,
-        fontSize:20,
-        color: "#161F3D",
-        marginBottom:20,
-        marginTop:-5,
-    },
-    button:{
-        marginHorizontal: -30,
-        backgroundColor:"#385da8",
-        borderRadius:15,
-        height:40,
-        alignItems: "center",
-        justifyContent:"center"
-    },
-    signup:{
-        fontWeight: "900",
-        color:"#ff0000"
-    },
-    error:{
-        color: "#ff0000",
-        fontSize:20,
-        fontWeight:"600",
-        textAlign:"center"
-    },
-    errorBox:{
-        backgroundColor: "#ffffff",
-        alignItems:"center",
-        justifyContent:"center",
-        marginHorizontal:20,
-        translateY:-60
-    },
-    
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    top: "7%"
+  },
+  greeting: {
+    marginTop: 32,
+    marginBottom: 32,
+    fontSize: 28,
+    fontWeight: "bold",
+    fontWeight: "400",
+    textAlign: "center"
+  },
+  errorMessage: {
+    height: 52,
+    alignItems: "center",
+    justifyContent: "center",
+    marginHorizontal: 30
+  },
+  form: {
+    marginBottom: 60,
+    marginHorizontal: 103
+  },
+  input: {
+    borderBottomColor: "#8A8F9E",
+    borderBottomWidth: 2,
+    height: 40,
+    fontSize: 20,
+    color: "#161F3D",
+    marginBottom: 20
+  },
+  button: {
+    backgroundColor: "#1C8ADB",
+    borderRadius: 20,
+    height: 40,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  signup: {
+    fontWeight: "600",
+    color: "#1C8ADB"
+  },
+  error: {
+    color: "#ff0000",
+    fontSize: 15,
+    fontWeight: "600",
+    textAlign: "center"
+  }
 });
