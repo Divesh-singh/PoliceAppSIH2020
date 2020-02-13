@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text,Dimensions, ScrollView,ImageBackground} from 'react-native';
+import {View, Text,Dimensions, ScrollView,ImageBackground,Alert} from 'react-native';
 
 import { Header } from "react-native-elements";
 import {
