@@ -26,7 +26,7 @@ export default class RegisterScreen extends React.Component {
   state = {
     name: "",
     email: "",
-    adhar: "",
+    aadhar: "",
     number: "",
     password: "",
     pushToken: "",
@@ -49,14 +49,14 @@ export default class RegisterScreen extends React.Component {
 
     firebase
       .database()
-      .ref("/users")
-      .push({
+      .ref("Police Users/")
+      .child(this.state.email.replace(".", "@"))
+      .set({
         name: this.state.name,
         email: this.state.email,
-        adhar: this.state.adhar,
+        aadhar: this.state.aadhar,
         number: this.state.number,
-        token: this.state.pushToken
-      });
+      })
   };
 
   //......................PUSH NOTIFICATIONS.......................................///

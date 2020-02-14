@@ -123,7 +123,7 @@ export default class Activities extends Component {
   fetchDataUser = () => {
     firebase
       .database()
-      .ref("NOC/-M-4nlvTqXaHFBBPDHc7")
+      .ref("Lost E-FIR/-M01_vZSORB9MGf5ZACG")
       .on("value", snapshot => {
         data = snapshot.val();
         keys = Object.keys(data);
@@ -229,11 +229,13 @@ export default class Activities extends Component {
             <Text style={{fontSize: 20}}>Type:Lost E-Fir</Text>
               <Text style={styles.text}>{key[0]}:{" "}{User[0]}</Text>
               <Text style={styles.text}>{key[6]}:{" "}{User[6]}</Text>
+              <Text style={styles.text}>{key[3]}:{" "}{User[3]}</Text>
+              <Text style={styles.text}>{key[5]}:{" "}{User[5]}</Text>
               <Text style={styles.text}>{key[4]}:{" "}{User[4]}</Text>
               <Text style={styles.text}>{key[10]}:{" "}{User[10]}</Text>
               <Text style={styles.text}>{key[7]}:{" "}{User[7]}</Text>
               <Text style={styles.text}>{key[8]}:{" "}{User[8]}</Text>
-              <Text style={styles.text}>{key[3]}:{" "}{User[3]}</Text>
+              {/*<Text style={styles.text}>{key[3]}:{" "}{User[3]}</Text> */}
              {/* {User.map(info => <Text>{info}</Text>)} */}
               <Button
                 onPress={this.sendPushNotification1}
