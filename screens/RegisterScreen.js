@@ -7,7 +7,8 @@ import {
   KeyboardAvoidingView,
   StatusBar,
   LayoutAnimation,
-  ImageBackground
+  ImageBackground,
+  ScrollView
 } from "react-native";
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
 
@@ -94,6 +95,7 @@ export default class RegisterScreen extends React.Component {
         source={require("../assets/background.jpg")}
         style={{ width: "100%", height: "100%" }}
       >
+        <ScrollView>
         <KeyboardAvoidingView
           style={styles.container}
           behavior="padding"
@@ -103,7 +105,7 @@ export default class RegisterScreen extends React.Component {
             style={{ width: 115, height: 180 }}
             source={require("../assets/logopolice.png")}
           />
-          <Text style={styles.greeting}>Citizen Register</Text>
+          <Text style={styles.greeting}>Police Register</Text>
           <View style={styles.errorMessage}>
             {this.state.errorMessage && (
               <Text style={styles.error}> {this.state.errorMessage} </Text>
@@ -184,6 +186,7 @@ export default class RegisterScreen extends React.Component {
             </TouchableOpacity>
           </View>
         </KeyboardAvoidingView>
+        </ScrollView>
       </ImageBackground>
     );
   }

@@ -1,30 +1,3 @@
-// import React from 'react';
-// import {View, Text, StyleSheet, ScrollView} from 'react-native';
-// import CustomChatbot from '../Components/CustomChatbot';
-
-// export default class ScannerScreen extends React.Component{
-
-//     state={
-
-//     }
-
-//   render(){
-//     return(
-      
-//       <View style ={styles.chat}>
-//         <CustomChatbot/>
-//         </View>
-//     )
-//   }
-// }
-
-// const styles= StyleSheet.create({
-//   chat:{
-//     marginTop: 20,
-    
-//   }
-// })
-
 import * as React from 'react';
 import {
   Text,
@@ -74,7 +47,7 @@ export default class BarcodeScannerExample extends React.Component {
       <View style = {{flex:1, flexDirection:"column", justifyContent: "flex-end"}}>
     
       <BarCodeScanner onBarCodeScanned = {
-        scanned ? "" : this.handleBarCodeScanned
+        scanned ? undefined : this.handleBarCodeScanned
       }
       style = {
         StyleSheet.absoluteFillObject
