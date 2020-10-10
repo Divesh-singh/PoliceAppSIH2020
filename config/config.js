@@ -7,3 +7,4 @@ export default FirebaseKeys = {
     messagingSenderId: "43086957866",
     appId: "1:43086957866:web:87d03b215fb73387816253"
   }
+// removed unnecessary lang
